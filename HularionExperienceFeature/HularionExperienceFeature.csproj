@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="HularionIcon.ico" />
+    <None Remove="HX\StandardControls\HularionExperienceDeveloper.hxproject" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="HularionIcon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="HX\StandardControls\HularionExperienceDeveloper.hxproject" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="HX\Clones\" />
+    <Folder Include="HX\Components\" />
+    <Folder Include="HX\StandardControls\PresenterSets\Control\" />
+    <Folder Include="HX\Templates\" />
+    <Folder Include="HX\Presenters\" />
+  </ItemGroup>
+
+</Project>

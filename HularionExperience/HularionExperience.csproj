@@ -1,0 +1,110 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Boot\Desktop\**" />
+    <Compile Remove="Boot\Web\**" />
+    <Compile Remove="Build\**" />
+    <Compile Remove="Definition\PackageMeta\**" />
+    <Compile Remove="PackageManagement\**" />
+    <Compile Remove="Packages\Core\**" />
+    <Compile Remove="Packages\Kernel\ImportScriptSets\**" />
+    <Compile Remove="Plugin\Developer\**" />
+    <Compile Remove="Plugin\State\**" />
+    <Compile Remove="State\**" />
+    <EmbeddedResource Remove="Boot\Desktop\**" />
+    <EmbeddedResource Remove="Boot\Web\**" />
+    <EmbeddedResource Remove="Build\**" />
+    <EmbeddedResource Remove="Definition\PackageMeta\**" />
+    <EmbeddedResource Remove="PackageManagement\**" />
+    <EmbeddedResource Remove="Packages\Core\**" />
+    <EmbeddedResource Remove="Packages\Kernel\ImportScriptSets\**" />
+    <EmbeddedResource Remove="Plugin\Developer\**" />
+    <EmbeddedResource Remove="Plugin\State\**" />
+    <EmbeddedResource Remove="State\**" />
+    <None Remove="Boot\Desktop\**" />
+    <None Remove="Boot\Web\**" />
+    <None Remove="Build\**" />
+    <None Remove="Definition\PackageMeta\**" />
+    <None Remove="PackageManagement\**" />
+    <None Remove="Packages\Core\**" />
+    <None Remove="Packages\Kernel\ImportScriptSets\**" />
+    <None Remove="Plugin\Developer\**" />
+    <None Remove="Plugin\State\**" />
+    <None Remove="State\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="HularionEnvironment.cs" />
+    <Compile Remove="LocatorTraverser.cs" />
+    <Compile Remove="MeshJsonSerializer.cs" />
+    <Compile Remove="Plugin\RouteAggregator.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Boot\IFrameKernelLoader.html" />
+    <None Remove="Boot\IFrameLoader.html" />
+    <None Remove="Packages\Kernel\kernel.hxproject" />
+    <None Remove="Packages\Kernel\ScriptSets\Core\HKCControl.js" />
+    <None Remove="Packages\Kernel\ScriptSets\Core\HKCPubSub.js" />
+    <None Remove="Packages\Kernel\ScriptSets\Core\HKCPubSubSubscriber.js" />
+    <None Remove="Packages\Kernel\ScriptSets\Core\HKCRouter.js" />
+    <None Remove="Packages\Kernel\ScriptSets\Core\HKCSet.js" />
+    <None Remove="Packages\Kernel\ScriptSets\Core\HKCSynchronizer.js" />
+    <None Remove="Packages\Kernel\ScriptSets\Core\HKCTreeTraverser.js" />
+    <None Remove="Packages\Kernel\ScriptSets\Core\HKCWaiter.js" />
+    <None Remove="Packages\Kernel\ScriptSets\Kernel\FrameManager.js" />
+    <None Remove="Packages\Kernel\ScriptSets\Kernel\HularionBuildFrame.js" />
+    <None Remove="Packages\Kernel\ScriptSets\Kernel\HularionConstants.js" />
+    <None Remove="Packages\Kernel\ScriptSets\Kernel\HularionConstructor.js" />
+    <None Remove="Packages\Kernel\ScriptSets\Kernel\HularionPackage.js" />
+    <None Remove="Packages\Kernel\ScriptSets\Kernel\HularionPResenter.js" />
+    <None Remove="Packages\Kernel\ScriptSets\Kernel\PackageLocator.js" />
+    <None Remove="Packages\Kernel\ScriptSets\Kernel\PackageManager.js" />
+    <None Remove="Packages\Kernel\ScriptSets\Kernel\PackageSdk.js" />
+    <None Remove="Packages\Kernel\ScriptSets\Kernel\PresentationFrame.js" />
+    <None Remove="Packages\Kernel\ScriptSets\Kernel\ResourceManager.js" />
+    <None Remove="Packages\Kernel\ScriptSets\Kernel\ScriptFrame.js" />
+    <None Remove="Packages\Kernel\ScriptSets\Kernel\StyleManager.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Boot\Resources\IFrameKernelLoader.html" />
+    <EmbeddedResource Include="Boot\Resources\IFrameLoader.html" />
+    <EmbeddedResource Include="Packages\Kernel\kernel.hxproject" />
+    <EmbeddedResource Include="Packages\Kernel\ScriptSets\Core\HKCRouter.js" />
+    <EmbeddedResource Include="Packages\Kernel\ScriptSets\Core\HKCControl.js" />
+    <EmbeddedResource Include="Packages\Kernel\ScriptSets\Core\HKCPubSub.js" />
+    <EmbeddedResource Include="Packages\Kernel\ScriptSets\Core\HKCPubSubSubscriber.js" />
+    <EmbeddedResource Include="Packages\Kernel\ScriptSets\Core\HKCSet.js" />
+    <EmbeddedResource Include="Packages\Kernel\ScriptSets\Core\HKCSynchronizer.js" />
+    <EmbeddedResource Include="Packages\Kernel\ScriptSets\Core\HKCTreeTraverser.js" />
+    <EmbeddedResource Include="Packages\Kernel\ScriptSets\Core\HKCWaiter.js" />
+    <EmbeddedResource Include="Packages\Kernel\ScriptSets\Kernel\FrameManager.js" />
+    <EmbeddedResource Include="Packages\Kernel\ScriptSets\Kernel\HularionBuildFrame.js" />
+    <EmbeddedResource Include="Packages\Kernel\ScriptSets\Kernel\HularionConstants.js" />
+    <EmbeddedResource Include="Packages\Kernel\ScriptSets\Kernel\HularionConstructor.js" />
+    <EmbeddedResource Include="Packages\Kernel\ScriptSets\Kernel\HularionPackage.js" />
+    <EmbeddedResource Include="Packages\Kernel\ScriptSets\Kernel\PackageManager.js" />
+    <EmbeddedResource Include="Packages\Kernel\ScriptSets\Kernel\HularionPresenter.js" />
+    <EmbeddedResource Include="Packages\Kernel\ScriptSets\Kernel\PackageLocator.js" />
+    <EmbeddedResource Include="Packages\Kernel\ScriptSets\Kernel\PackageSdk.js" />
+    <EmbeddedResource Include="Packages\Kernel\ScriptSets\Kernel\PresentationFrame.js" />
+    <EmbeddedResource Include="Packages\Kernel\ScriptSets\Kernel\ResourceManager.js" />
+    <EmbeddedResource Include="Packages\Kernel\ScriptSets\Kernel\ScriptFrame.js" />
+    <EmbeddedResource Include="Packages\Kernel\ScriptSets\Kernel\StyleManager.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HularionPlugin.RouteRegistrar\HularionPlugin.RouteRegistrar.csproj" />
+    <ProjectReference Include="..\HularionPlugin\HularionPlugin.csproj" />
+    <ProjectReference Include="..\HularionText.Language.Css\HularionText.Language.Css.csproj" />
+    <ProjectReference Include="..\HularionText.Language.Html\HularionText.Language.Html.csproj" />
+  </ItemGroup>
+
+</Project>
