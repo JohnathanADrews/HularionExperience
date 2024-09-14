@@ -1,11 +1,40 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	<GenerateDocumentationFile>True</GenerateDocumentationFile>
+	<ApplicationIcon>HularionIcon.ico</ApplicationIcon>
+	<SignAssembly>False</SignAssembly>
+	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	<Title>HularionText.Language.Html</Title>
+	<Authors>Johnathan A Drews</Authors>
+	<Product>Hularion</Product>
+	<Description>Hularion Experience (HX) is an application framework that runs applications using web-based user interface code.</Description>
+	<Copyright>Copyright (c) 2023-2024 Johnathan A Drews</Copyright>
+	<PackageProjectUrl>http://www.hularion.com</PackageProjectUrl>
+	<PackageIcon>Hularion image.png</PackageIcon>
+	<RepositoryUrl>https://github.com/JohnathanADrews/Hularion</RepositoryUrl>
+	<RepositoryType>git</RepositoryType>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
+	<PackageTags>hularion text html serializer parser</PackageTags>
+	<Version>3.0.0</Version>
+	<PackageLicenseFile>LICENSE</PackageLicenseFile>
+	<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="..\Hularion image.png" Link="Hularion image.png">
+      <PackagePath>\</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="..\LICENSE" Link="LICENSE">
+      <PackagePath>\</PackagePath>
+      <Pack>True</Pack>
+    </None>
+  </ItemGroup>
+  
   <ItemGroup>
     <Compile Remove="Boot\Desktop\**" />
     <Compile Remove="Boot\Web\**" />
@@ -101,10 +130,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HularionPlugin.RouteRegistrar\HularionPlugin.RouteRegistrar.csproj" />
-    <ProjectReference Include="..\HularionPlugin\HularionPlugin.csproj" />
-    <ProjectReference Include="..\HularionText.Language.Css\HularionText.Language.Css.csproj" />
-    <ProjectReference Include="..\HularionText.Language.Html\HularionText.Language.Html.csproj" />
+    <PackageReference Include="HularionPlugin" Version="3.0.0" />
+    <PackageReference Include="HularionPlugin.RouteRegistrar" Version="3.0.1" />
+    <PackageReference Include="HularionText.Language.Css" Version="3.0.0" />
+    <PackageReference Include="HularionText.Language.Html" Version="3.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

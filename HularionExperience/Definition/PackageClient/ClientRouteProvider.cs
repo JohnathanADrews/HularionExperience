@@ -32,6 +32,8 @@ namespace HularionExperience.Definition.PackageClient
 
         public string Handle { get; set; }
 
+        public bool IsSystemRouter { get; set; }
+
         public List<ClientRouteMethod> Routes { get; set; } = new List<ClientRouteMethod>();
 
 
@@ -47,7 +49,7 @@ namespace HularionExperience.Definition.PackageClient
             HandleType = routeProvider.HandleType;
             Handle = routeProvider.Handle;
             Routes = routeProvider.Methods.Select(x => new ClientRouteMethod(x)).ToList();
-
+            IsSystemRouter = routeProvider.IsSystemRouter;
         }
 
     }

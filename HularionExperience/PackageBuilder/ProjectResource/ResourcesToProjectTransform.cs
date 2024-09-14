@@ -383,6 +383,11 @@ namespace HularionExperience.PackageBuilder.ProjectResource
                 routeProvider.Handle = node.GetAttributeValue(HtmlPackageAttribute.Handle.Attribute);
                 routeProvider.HandleType = node.GetAttributeValue(HtmlPackageAttribute.Attach.Attribute);
 
+                if(String.Format("{0}", node.GetAttributeValue(HtmlPackageAttribute.SystemRouter.Attribute)).ToLower() == "true")
+                {
+                    routeProvider.IsSystemRouter = true;
+                }
+
                 package.RouteProviderDescriptions.Add(routeProvider);
             }
 

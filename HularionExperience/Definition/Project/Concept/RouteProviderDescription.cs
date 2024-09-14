@@ -31,6 +31,8 @@ namespace HularionExperience.Definition.Project.Concept
 
         public string Handle { get; set; }
 
+        public bool IsSystemRouter { get; set; } = false;
+
         public List<RouteMethod> Methods { get; set; } = new List<RouteMethod>();
     }
 }

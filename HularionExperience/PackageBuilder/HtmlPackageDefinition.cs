@@ -64,6 +64,7 @@ namespace HularionExperience.PackageBuilder
         public static HtmlPackageAttribute ObjectName { get; private set; } = new HtmlPackageAttribute() { Name = "name" };
         public static HtmlPackageAttribute ObjectDescription { get; private set; } = new HtmlPackageAttribute() { Name = "description" };
         public static HtmlPackageAttribute ServerRouter { get; private set; } = new HtmlPackageAttribute() { Name = "server-router" };
+        public static HtmlPackageAttribute SystemRouter { get; private set; } = new HtmlPackageAttribute() { Name = "system-router" };
         public static HtmlPackageAttribute MethodGroup { get; private set; } = new HtmlPackageAttribute() { Name = "method-group" };
         public static HtmlPackageAttribute Handle { get; private set; } = new HtmlPackageAttribute() { Name = "handle" };
         public static HtmlPackageAttribute Attach { get; private set; } = new HtmlPackageAttribute() { Name = "attach" };
