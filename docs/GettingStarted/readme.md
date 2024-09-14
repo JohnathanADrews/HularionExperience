@@ -55,7 +55,7 @@ This file lets HX know that there is an application, MyApp, and where to find th
 
 ### Edit the presenter file, MyAppEntryPoint.html.
 
-Open MyAppEntryPoint.html in a text editor. Like the project file, it is also an HTML fragment. Rather than configuration information, this file contains the preseter's functionality.
+Open MyAppEntryPoint.html in a text editor. Like the project file, it is also an HTML fragment. Rather than configuration information, this file contains the presenter's functionality.
 
 ```
 <h1>My App</h1>
@@ -74,14 +74,14 @@ Open MyAppEntryPoint.html in a text editor. Like the project file, it is also an
 
 </script>
 ```
-Here wer have a presenter that displays "My App" in an h1 tag. Notice the script tag and the javascript constructor function. The function must have the same name as the presenter, and it is required for the presenter to run. Also, there is a "start" method on the constructor function. This method is automatically called once the HX framework creates an instance of the presenter and performs the initialization.
+Here we have a presenter that displays "My App" in an h1 tag. Notice the script tag and the javascript constructor function. The function must have the same name as the presenter, and it is required for the presenter to run. Also, there is a "start" method on the constructor function. This method is automatically called once the HX framework creates an instance of the presenter and performs the initialization.
 
 
 ### Run the project.
 
-1. HularionDeveloper repository and download the latest release. https://github.com/JohnathanADrews/HularionDeveloper.
+1. Go to the HularionDeveloper repository and download the latest release. https://github.com/JohnathanADrews/HularionDeveloper.
 2. Extract the files and run HularionDeveloper.exe. Creating a shortcut may be helpful.
-3. When you run it, two windows will pop up. One is the application window, and the other is the web development tools. The first time you run it, you will need to create a context name (like a username) and agree to the disclaimer. This is only necessary the first time. If you look in the HularionDeveloper.exe folder, a .hx folder will appear. There is a database file that stored some basic information such as your context name, which packages are installed, and which applications you have selected. This is also where any HX packages you install are kept.
+3. When you run it, two windows will pop up. One is the application window, and the other is the web development tools. The first time you run it, you will need to create a context name (like a username) and agree to the disclaimer. This is only necessary the first time. If you look in the HularionDeveloper.exe folder, a .hx folder will appear. There is a database file that stored some basic information such as your context name, which packages are installed, and which applications you have selected. The .hx folder is also where any HX packages you install are kept.
 4. In the menu, go to Package->View Sources. This will show you the package sources you have added, and it will also allow you to add new sources.
 ![Image](ViewSources.png)
 5. Click the Add Source button.
