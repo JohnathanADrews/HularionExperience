@@ -11,7 +11,7 @@ If you are unfamiliar with Hularion Experience, please take a look at the first 
 
 https://github.com/JohnathanADrews/HularionExperience/tree/main/docs/1%20-%20GettingStarted/readme.md
 
-https://github.com/JohnathanADrews/HularionExperience/tree/main/docs/2%20-%20Button/readme.md
+https://github.com/JohnathanADrews/HularionExperience/blob/main/docs/2%20-%20Create%20a%20Button/readme.md
 
 ## Hularion Experience - Components
 
