@@ -9,16 +9,16 @@
 
 If you are unfamiliar with Hularion Experience, please take a look at the first two documents, Getting Started and Button. The concepts in those two are necessary for any further study. They are available using the following links.
 
-https://github.com/JohnathanADrews/HularionExperience/tree/main/docs/1%20-%20GettingStarted
+https://github.com/JohnathanADrews/HularionExperience/tree/main/docs/1%20-%20GettingStarted/readme.md
 
-https://github.com/JohnathanADrews/HularionExperience/tree/main/docs/2%20-%20Button
+https://github.com/JohnathanADrews/HularionExperience/tree/main/docs/2%20-%20Button/readme.md
 
 ## Hularion Experience - Clones
 
 
 In Hularion Experience, there are two types of templating mechanisms, clones and templates. Clones are lightweight copies of HTML fragments. Templates, on the other hand, can copy presenter references, clone instances, and even other template instance. In this document, we will discuss clones.
 
-We will use the MyAppEntryPoint presenter as a starting point, but we will remove the Button logic. So, it will have the following code. 
+We will use a clean version the MyAppEntryPoint presenter from the first document. So, it will have the following code. 
 
 ```
 <h1>My App</h1>
@@ -48,7 +48,7 @@ We will use the MyAppEntryPoint presenter as a starting point, but we will remov
 <label h-clone="labelClone" h-handle="label"></label>
 ```
 This tag adds a clone to the presenter which can then be used to create copies using the name "labelClone". 
-We can also add the clone logic in the javascript and create a few clones, change their names, and add them to the presenter.
+We can also add the clone logic in the javascript and create a few clones, change their names, and add them to the presenter. 
 ```
 <h1>My App</h1>
 
@@ -86,7 +86,7 @@ We can also add the clone logic in the javascript and create a few clones, chang
 
 </script>
 ```
-Notice that the t.hularion.createClone method is used to create the clone by passing the name of the clone.
+Notice that the t.hularion.createClone method is used to create the clone by passing the name of the clone. this.hularion.presenter is a reference to the DOM element of the presenter instance, which is where the clones are being added.
 ![Image](LabelClones.png)
 
 2. Next, we are going to make a div clone, and we will add some elements to that clone. Add the following HTML.
@@ -108,13 +108,13 @@ var divClone1 = t.hularion.createClone("divClone");
 console.log("MyAppEntryPoint.start divClone1 - ", divClone1);
 divClone1.handles.h1.innerHTML = "h1-1";
 divClone1.handles.p.innerHTML = "p-1";
-t.hularion.principal.append(divClone1.dome);
+t.divCloneContainer.append(divClone1.dome);
 
 var divClone2 = t.hularion.createClone("divClone");			
 console.log("MyAppEntryPoint.start divClone2 - ", divClone2);
 divClone2.handles.h1.innerHTML = "h1-2";
 divClone2.handles.p.innerHTML = "p-2";
-t.hularion.principal.append(divClone2.dome);
+t.divCloneContainer.append(divClone2.dome);
 ```
 
 I also added a container for the divCloneClones and some styling. Here is the complete text.
