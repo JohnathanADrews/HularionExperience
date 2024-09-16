@@ -1,5 +1,6 @@
 
-![Image](https://github.com/JohnathanADrews/Hularion/blob/main/Hularion%20image.png?raw=true)
+
+![Image](Hularion.png)
 
 # Hularion - *Software with a Strategy*
 
