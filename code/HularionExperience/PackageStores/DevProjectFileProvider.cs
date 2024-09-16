@@ -56,7 +56,8 @@ namespace HularionExperience.PackageStores
         public string[] LocateHXFromCSharpProject(Assembly assembly)
         {
             var entryName = Assembly.GetEntryAssembly().GetName().Name;
-            var baseDirectory = assembly.Location.Substring(0, assembly.Location.IndexOf(entryName));
+            var bin = assembly.Location.Substring(0, assembly.Location.LastIndexOf("bin"));
+            var baseDirectory = bin.Substring(0, bin.LastIndexOf(entryName));
             var files = assembly.GetManifestResourceNames().Where(x => x.EndsWith(projectEndsWith)).ToList();
             var directories = files.Select(x => baseDirectory + x.Substring(0, x.Length - projectEndsWith.Length)).ToList();
             directories = directories.Select(x => x.Substring(0, x.LastIndexOf(".")).Replace(".", @"\")).ToList();

@@ -19,7 +19,7 @@
 	<RepositoryType>git</RepositoryType>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
 	<PackageTags>hularion app application framework</PackageTags>
-	<Version>3.0.1</Version>
+	<Version>3.0.2</Version>
 	<PackageLicenseFile>LICENSE</PackageLicenseFile>
 	<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
@@ -100,6 +100,10 @@
     <None Remove="Packages\Kernel\ScriptSets\Kernel\ResourceManager.js" />
     <None Remove="Packages\Kernel\ScriptSets\Kernel\ScriptFrame.js" />
     <None Remove="Packages\Kernel\ScriptSets\Kernel\StyleManager.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="HularionIcon.ico" />
   </ItemGroup>
 
   <ItemGroup>

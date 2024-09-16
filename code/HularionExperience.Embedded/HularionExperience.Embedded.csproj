@@ -19,7 +19,7 @@
 	<RepositoryType>git</RepositoryType>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
 	<PackageTags>hularion app application framework</PackageTags>
-	<Version>3.0.1</Version>
+	<Version>3.0.3</Version>
 	<PackageLicenseFile>LICENSE</PackageLicenseFile>
 	<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
@@ -51,10 +51,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CefSharp.Wpf.NETCore" Version="127.3.50" />
-    <PackageReference Include="chromiumembeddedframework.runtime.win-arm64" Version="127.3.5" />
-    <PackageReference Include="chromiumembeddedframework.runtime.win-x64" Version="127.3.5" />
-    <PackageReference Include="HularionExperience" Version="3.0.1" />
+    <PackageReference Include="CefSharp.Wpf.NETCore" Version="114.2.120" />
+    <PackageReference Include="chromiumembeddedframework.runtime.win-arm64" Version="114.2.12" />
+    <PackageReference Include="chromiumembeddedframework.runtime.win-x64" Version="114.2.12" />
+    <PackageReference Include="HularionExperience" Version="3.0.2" />
   </ItemGroup>
 
   <ItemGroup>
