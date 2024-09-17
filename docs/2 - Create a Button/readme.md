@@ -29,14 +29,6 @@ Please use the latest release. Alternatively, you can run it from your IDE and s
 &nbsp;
 
 
-## Contents 
-
-1. [Introduction](#Introduction)
-1. [Creating the Directories and Files](#CreatingDirectoriesFiles)
-1. [Edit the Project File](#EditProjectFile)
-1. [Edit the Application File](#EditApplicationFile)
-1. [Edit the Presenter File](#EditPresenterFile)
-1. [Run the Project](#RunProject)
 
 &nbsp;
 <a id="Introduction"></a>
