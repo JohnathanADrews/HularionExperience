@@ -19,7 +19,9 @@
 1. [Edit the Presenter File](#EditPresenterFile)
 1. [Run the Project](#RunProject)
 
-## Introduction <a id="Introduction"></a>
+&nbsp;
+<a id="Introduction"></a>
+## Introduction 
 
 ###### goto &rarr; [(next)](#CreatingDirectoriesFiles) - [(top)](#top)
 
@@ -30,7 +32,9 @@ To run HX projects, we will use the Hularion Developer application, which is abl
 https://github.com/JohnathanADrews/HularionDeveloper
 
 
-## Creating the Directories and Files <a id="CreatingDirectoriesFiles"></a>
+&nbsp;
+<a id="CreatingDirectoriesFiles"></a>
+## Creating the Directories and Files 
 
 ###### goto &rarr; [(prev)](#Introduction) - [(next)](#EditProjectFile) - [(top)](#top)
 
@@ -46,11 +50,11 @@ It should end up looking like this
 ![Image](GettingStartedFiles.png)
  
 
-
+&nbsp;
 <a id="EditProjectFile"></a>
 ## Edit the Project File, MyProject.hxproject
 
-###### goto &rarr; [(prev)](#CreatingDirectoriesFiles) - [(next)](#CreatingDirectoriesFiles) - [(top)](#top)
+###### goto &rarr; [(prev)](#CreatingDirectoriesFiles) - [(next)](#EditApplicationFile) - [(top)](#top)
 
 Open MyProject.hxproject in a text editor. The project file, like most configuration files in HX, is an HTML fragment. When HX builds a package from a project, it uses HTML attributes to decide the build for both configuration files and presenters. Using HTML also enables seamless integration of CSS and javascript into the configuration. In the MyProject.hxproject file, add the following code.
 
@@ -64,7 +68,9 @@ Open MyProject.hxproject in a text editor. The project file, like most configura
 ```
 
 
-## Edit the Application File, MyApp.html <a id="EditApplicationFile"></a>
+&nbsp;
+<a id="EditApplicationFile"></a>
+## Edit the Application File, MyApp.html 
 
 ###### goto &rarr; [(prev)](#EditProjectFile) - [(next)](#EditPresenterFile) - [(top)](#top)
 
@@ -83,7 +89,9 @@ This file lets HX know that there is an application, MyApp, and where to find th
 
 
 
-## Edit the Presenter File, MyAppEntryPoint.html. <a id="EditPresenterFile"></a>
+&nbsp;
+<a id="EditPresenterFile"></a>
+## Edit the Presenter File, MyAppEntryPoint.html. 
 
 ###### goto &rarr; [(prev)](#EditApplicationFile) - [(next)](#RunProject) - [(top)](#top)
 
@@ -110,7 +118,9 @@ Here we have a presenter that displays "My App" in an h1 tag. Notice the script 
 
 
 
-## Run the Project <a id="RunProject"></a>
+&nbsp;
+<a id="RunProject"></a>
+## Run the Project 
 
 ###### goto &rarr; [(prev)](#EditPresenterFile) - [(next)](#End) - [(top)](#top)
 
@@ -136,5 +146,6 @@ Here we have a presenter that displays "My App" in an h1 tag. Notice the script 
 
 
 &nbsp;
-### The End <a id="End"></a>
+<a id="End"></a>
+### The End 
 ###### goto &rarr; [(prev)](#RunProject) - [(top)](#top)
