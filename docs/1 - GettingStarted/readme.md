@@ -47,8 +47,8 @@ It should end up looking like this
  
 
 
-
-## Edit the Project File, MyProject.hxproject <a id="EditProjectFile"></a>
+<a id="EditProjectFile"></a>
+## Edit the Project File, MyProject.hxproject
 
 ###### goto &rarr; [(prev)](#CreatingDirectoriesFiles) - [(next)](#CreatingDirectoriesFiles) - [(top)](#top)
 
