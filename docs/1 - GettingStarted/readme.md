@@ -2,13 +2,22 @@
 
 ![Image](Hularion.png)
 #### Hularion - *Software with a Strategy*
-#### Hularion Experience (HX) - A modular client application framework for web and desktop using HTML/CSS/JS.
+#### Hularion Experience (HX) - A modular client application framework for web and desktop using HTML, CSS, and JS.
+
+&nbsp;
+
+# Hularion Experience - Getting Started
 
 &nbsp;
 
 
+## Requirements
 
-# Hularion Experience - Getting Started
+#### Hularion Developer - https://github.com/JohnathanADrews/HularionDeveloper
+
+Please use the latest release. Alternatively, you can run it from your IDE and set the HularionDeveloper project as the startup project.
+
+&nbsp;
 
 ## Contents 
 

@@ -1,21 +1,58 @@
-
+<a id="top"></a> 
 
 ![Image](Hularion.png)
-
-# Hularion - *Software with a Strategy*
-
-##### Hularion TM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Software with a Strategy TM
+#### Hularion - *Software with a Strategy*
+#### Hularion Experience (HX) - A modular client application framework for web and desktop using HTML, CSS, and JS.
 
 &nbsp;
 
-## Hularion Experience - Creating a Button
+# Hularion Experience - Basics - Create a Button
 
-In this example, we will create a button. A button requires many of the basic features included with HX, including handles, presenter references, proxy methods, event handlers, and some CSS basics. If you are unfamiliar with Hularion Experience, please take a look at the Getting Started documentation first. We will be building on that starting project.
+&nbsp;
 
-To get started, find the project we created in the 1-Getting Started sample. It would be helpful to open the project in Hularion Developer. Hularion Developer allows us to refresh an application tab. When this happens, it will also rebuild the project. This enables us to quickly view our changes.
+## Prerequisites
+
+If you are unfamiliar with Hularion Experience, please review the following article(s) before continuing. 
+
+#### Article 1 - Getting Started
+
+https://github.com/JohnathanADrews/HularionExperience/tree/main/docs/1%20-%20GettingStarted/readme.md
+
+&nbsp;
+
+## Requirements
+
+#### Hularion Developer - https://github.com/JohnathanADrews/HularionDeveloper
+
+Please use the latest release. Alternatively, you can run it from your IDE and set the HularionDeveloper project as the startup project.
+
+&nbsp;
 
 
-### Adding the button
+## Contents 
+
+1. [Introduction](#Introduction)
+1. [Creating the Directories and Files](#CreatingDirectoriesFiles)
+1. [Edit the Project File](#EditProjectFile)
+1. [Edit the Application File](#EditApplicationFile)
+1. [Edit the Presenter File](#EditPresenterFile)
+1. [Run the Project](#RunProject)
+
+&nbsp;
+<a id="Introduction"></a>
+## Introduction
+
+###### goto &rarr; [(next)](#CreatingDirectoriesFiles) - [(top)](#top)
+
+In this article, we will discuss many of the basic features of Hularion Experience, including handles, presenter references, proxy methods, event handlers, and some CSS basics. We will create a Button to exercise these concepts.
+
+To get started, please use the content of the [Setup](Setup) folder.
+
+&nbsp;
+<a id="Introduction"></a>
+## Adding the button
+
+###### goto &rarr; [(prev)](#Introduction) - [(next)](#EditProjectFile) - [(top)](#top)
 
 1. Go to the MyAppPresenters folder. Then, create a new file called Button.html. 
 
