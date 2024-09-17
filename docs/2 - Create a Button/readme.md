@@ -392,7 +392,7 @@ First, let's add the Click publisher declaration to Button
 <hx h-publisher="Click" />
 ```
 
-Second, let't send messages to the click publisher when Button is clicked.
+Second, let's send messages to the click publisher when Button is clicked.
 ```
 var t = this;
 t.hularion.principal.addEventListener("click", ()=>{
@@ -499,7 +499,7 @@ Full ButtonAppEntryPoint.html code:
 </script>
 ```
 
-If we reload the application and click the button a few times, we can see the reult in the console.
+If we reload the application and click the button a few times, we can see the result in the console.
 
 ![Image](ButtonClicking.png)
 
@@ -625,5 +625,5 @@ Button.html
 &nbsp;
 <a id="End"></a>
 ### The End 
-Please take a look a this [EndState](EndState) folder for the final project.
+Please take a look a this [Completed](Completed) folder for the final project.
 ###### goto &rarr; [(prev)](#FinalCode) - [(top)](#top)
