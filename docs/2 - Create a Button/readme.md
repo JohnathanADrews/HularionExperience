@@ -56,7 +56,7 @@ In this article, we will discuss many of the basic features of Hularion Experien
 ###### goto &rarr; [(prev)](#Introduction) - [(next)](#AddingAButton) - [(top)](#top)
 
 1. Open the Hularion Developer application as set out in the [(Requirements)](#Requirements).
-2. Copy the content of the [Setup](Setup) folder into a local folder. Alternatively, you can create the folder structure and file as follows.
+2. Copy the content of the [Setup](Setup) folder into a local folder. Alternatively, you can create the folder structure and files as follows.
 
 #### Directory Structure and Files
 
@@ -114,7 +114,7 @@ In Hularion Developer, select Package->ViewSources.
 Enter a Name and a Location, which is the directory in which ButtonProject.hxproject was placed. Then, click Create. The Create button will then be replaced by an Update button and a Delete button.
 ![Image](CreateSource.png)
 
-Go to Package->View Packages. You will see the Button Project package. It has a green tip, which means that it is sourced from a project, as opposedd to a compiled package. Click the Add button to add the project. The Add button will be replaced by a Remove button.
+Go to Package->View Packages. You will see the Button Project package. It has a green tip, which means that it is sourced from a project, as opposed to a compiled package. Click the Add button to add the project. The Add button will be replaced by a Remove button.
 
 ![Image](AddProject.png)
 
@@ -300,7 +300,7 @@ As you can see, we have updated the label text of the button from the caller.
 
 ###### goto &rarr; [(prev)](#AddingProxyMethod) - [(next)](#PublishingClick) - [(top)](#top)
 
-Now that we have some basic functionality, let's add a bit of stlye to Button so we can clearly see the boundaries. In Button.html, add the following style tag at the bottom.
+Now that we have some basic functionality, let's add a bit of style to Button so we can clearly see the boundaries. In Button.html, add the following style tag at the bottom.
 
 ```
 <style>
@@ -385,7 +385,7 @@ Full Button.html code:
 
 ###### goto &rarr; [(prev)](#AddingStyle) - [(next)](#FinalCode) - [(top)](#top)
 
-The last functionality we will add to button is publishing the Click event. In HX, a presenter can declare a tag having an h-publisher attribute. This indicates that the presnter will publish events to the registered subscribers. In this section, we will add a Click publisher to the Button presenter and subscribe to Click publisher from the ButtonAppEntryPoint presenter.
+The last functionality we will add to button is publishing the Click event. In HX, a presenter can declare a tag having an h-publisher attribute. This indicates that the presenter will publish events to the registered subscribers. In this section, we will add a Click publisher to the Button presenter and subscribe to Click publisher from the ButtonAppEntryPoint presenter.
 
 First, let's add the Click publisher declaration to Button
 ```
@@ -401,7 +401,7 @@ t.hularion.principal.addEventListener("click", ()=>{
     t.hularion.publisher.Click.publish();
 });
 ```
-In this code block, we are adding an event listener on "principal", which is the DOM element of the Button instance. Then, when that event happens we are first logging the event to the console. Then, we are using the publisher to publish to Click. The Click object is automatically assigned by HX due to the declaration at the top. 
+In this code block, we are adding an event listener on "principal", which is the DOM element of the Button instance. When that event happensm we are first logging the event to the console. Then, we are using the publisher to publish to Click. The Click object is automatically assigned by HX due to the declaration at the top. 
 
 
 Here its the complete Button.html code.
@@ -468,7 +468,7 @@ t.buttons.appButton.publisher.Click.subscribe((object, event)=>{
     console.log("ButtonAppEntryPoint.start - ", t, object, event);				
 });
 ```
-As you can see, the Button presenter object has a Click object on the publisher, which matches the declaration in Button.
+As you can see, the Button presenter object has a Click object on the publisher, which matches the declaration in Button. The Click.subscribe method expects a function with the first parameter being the sending object, the Button instance in this case. The second parameter is the event object, which contains the information the sender wants to send.
 
 Full ButtonAppEntryPoint.html code:
 ```
