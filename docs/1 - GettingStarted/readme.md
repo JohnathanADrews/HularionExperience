@@ -1,16 +1,38 @@
-
+<a id="top"></a> 
 
 ![Image](Hularion.png)
-
-# Hularion - *Software with a Strategy*
-
-##### Hularion TM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Software with a Strategy TM
+#### Hularion - *Software with a Strategy*
+#### Hularion Experience (HX) - A modular client application framework for web and desktop using HTML/CSS/JS.
 
 &nbsp;
 
-## Hularion Experience - Creating a New Project
 
-### Create the directories and files
+
+# Hularion Experience - Getting Started
+
+## Contents 
+
+1. [Introduction](#Introduction)
+1. [Creating the Directories and Files](#CreatingDirectoriesFiles)
+1. [Edit the Project File](#EditProjectFile)
+1. [Edit the Application File](#EditApplicationFile)
+1. [Edit the Presenter File](#EditPresenterFile)
+1. [Run the Project](#RunProject)
+
+## Introduction <a id="Introduction"></a>
+
+###### goto &rarr; [(next)](#CreatingDirectoriesFiles) - [(top)](#top)
+
+In this article, we will discuss how to create the folder structure and necessary files to create a working HX project. In later articles, we will expand on the capabilities of an HX project and how to use it to create an HX package. An HX package could contain applications or it could be used as a module in other projects.
+
+To run HX projects, we will use the Hularion Developer application, which is able to run multiple projects at once, and it can also build packages from projects. You can run the latest release or run it from your IDE. Use the following link to access the repository.
+
+https://github.com/JohnathanADrews/HularionDeveloper
+
+
+## Creating the Directories and Files <a id="CreatingDirectoriesFiles"></a>
+
+###### goto &rarr; [(prev)](#Introduction) - [(next)](#EditProjectFile) - [(top)](#top)
 
 1. Create a new folder. In this example we are using the MyProject folder.
 2. In the new folder, create a file called MyProject.hxproject. This is the main project configuration file.
@@ -24,7 +46,11 @@ It should end up looking like this
 ![Image](GettingStartedFiles.png)
  
 
-### Edit the project file, MyProject.hxproject.
+
+
+## Edit the Project File, MyProject.hxproject <a id="EditProjectFile"></a>
+
+###### goto &rarr; [(prev)](#CreatingDirectoriesFiles) - [(next)](#CreatingDirectoriesFiles) - [(top)](#top)
 
 Open MyProject.hxproject in a text editor. The project file, like most configuration files in HX, is an HTML fragment. When HX builds a package from a project, it uses HTML attributes to decide the build for both configuration files and presenters. Using HTML also enables seamless integration of CSS and javascript into the configuration. In the MyProject.hxproject file, add the following code.
 
@@ -37,7 +63,10 @@ Open MyProject.hxproject in a text editor. The project file, like most configura
 </hx>
 ```
 
-### Edit the application file, MyApp.html.
+
+## Edit the Application File, MyApp.html <a id="EditApplicationFile"></a>
+
+###### goto &rarr; [(prev)](#EditProjectFile) - [(next)](#EditPresenterFile) - [(top)](#top)
 
 Open MyApp.html in a text editor. Like the project file, it is also an HTML fragment. Add the following code.
 
@@ -54,7 +83,9 @@ This file lets HX know that there is an application, MyApp, and where to find th
 
 
 
-### Edit the presenter file, MyAppEntryPoint.html.
+## Edit the Presenter File, MyAppEntryPoint.html. <a id="EditPresenterFile"></a>
+
+###### goto &rarr; [(prev)](#EditApplicationFile) - [(next)](#RunProject) - [(top)](#top)
 
 Open MyAppEntryPoint.html in a text editor. Like the project file, it is also an HTML fragment. Rather than configuration information, this file contains the presenter's functionality.
 
@@ -78,7 +109,10 @@ Open MyAppEntryPoint.html in a text editor. Like the project file, it is also an
 Here we have a presenter that displays "My App" in an h1 tag. Notice the script tag and the javascript constructor function. The function must have the same name as the presenter, and it is required for the presenter to run. Also, there is a "start" method on the constructor function. This method is automatically called once the HX framework creates an instance of the presenter and performs the initialization.
 
 
-### Run the project.
+
+## Run the Project <a id="RunProject"></a>
+
+###### goto &rarr; [(prev)](#EditPresenterFile) - [(next)](#End) - [(top)](#top)
 
 1. Go to the HularionDeveloper repository and download the latest release. https://github.com/JohnathanADrews/HularionDeveloper.
 2. Extract the files and run HularionDeveloper.exe. Creating a shortcut may be helpful.
@@ -101,5 +135,6 @@ Here we have a presenter that displays "My App" in an h1 tag. Notice the script 
 ![alt text](RunMyApp.png)
 
 
-
-### The End
+&nbsp;
+### The End <a id="End"></a>
+###### goto &rarr; [(prev)](#RunProject) - [(top)](#top)
