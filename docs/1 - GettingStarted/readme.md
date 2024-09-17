@@ -15,7 +15,7 @@
 
 #### Hularion Developer - https://github.com/JohnathanADrews/HularionDeveloper
 
-Please use the latest release. Alternatively, you can run it from your IDE and set the HularionDeveloper project as the startup project.
+Please use the latest release. Alternatively, you can run it from your IDE by setting the HularionDeveloper project as the startup project.
 
 &nbsp;
 
