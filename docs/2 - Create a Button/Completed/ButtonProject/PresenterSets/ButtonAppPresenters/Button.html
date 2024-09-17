@@ -1,0 +1,55 @@
+
+<hx h-publisher="Click" />
+<hx h-proxy="setText" />
+
+<label h-handle="title" class="buttonTitle">Button</label>
+
+
+<script>
+
+    function Button() {
+    }
+
+    Button.prototype = {
+
+        start: function (parameters) {            
+		
+            console.log("Button.start - ", this, window);
+
+			var t = this;
+			console.log("Button.start principal - ", t.hularion.principal);
+			t.hularion.principal.addEventListener("click", ()=>{
+				console.log("Button - button clicked");
+				
+				t.hularion.publisher.Click.publish();
+			});
+        },
+		
+		setText: function(text){
+            console.log("Button.setText - ", this, text);
+			this.title.innerHTML = text;
+		}
+    }
+
+</script>
+
+<style>
+	
+	.this{
+		width: 100px;
+		border:solid 2px lightgrey;
+		text-align:center;
+		cursor: pointer;
+		user-select: none;
+	}
+	
+	.this *{
+		cursor: pointer;
+		user-select: none;
+	}
+
+	.buttonTitle:hover{
+		color:darkgrey;
+	}
+
+</style>

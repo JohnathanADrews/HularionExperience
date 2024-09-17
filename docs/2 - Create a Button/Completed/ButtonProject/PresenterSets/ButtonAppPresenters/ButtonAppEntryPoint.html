@@ -1,0 +1,31 @@
+﻿
+
+<h1>Button App</h1>
+
+<hx h-presenter="Button" h-handle="buttons.appButton" />
+
+<script>
+
+    function ButtonAppEntryPoint() {
+    }
+
+    ButtonAppEntryPoint.prototype = {
+
+        start: function (parameters) {
+            var t = this;
+            
+            console.log("ButtonAppEntryPoint.start - ", t, window);
+
+			t.buttons.appButton.proxy.setText("App Button");
+			
+			t.buttons.appButton.publisher.Click.subscribe((object, event)=>{
+				console.log("ButtonAppEntryPoint.start - Button Clicked - ", object, event);				
+			});
+        }
+    }
+
+</script>
+
+
+
+

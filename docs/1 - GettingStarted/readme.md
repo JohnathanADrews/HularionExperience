@@ -157,4 +157,5 @@ Here we have a presenter that displays "My App" in an h1 tag. Notice the script 
 &nbsp;
 <a id="End"></a>
 ### The End 
+Please take a look a this [EndState](EndState) folder for the final project.
 ###### goto &rarr; [(prev)](#RunProject) - [(top)](#top)
