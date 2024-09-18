@@ -141,7 +141,7 @@ The running application:
 
 ###### goto &rarr; [(prev)](#Setup) - [(next)](#AddingTreeNodeComponents) - [(top)](#top)
 
-In this example, we will create a simple tree of nested div tags. This allows us to explore compnents without any other functional expectations.
+In this example, we will create a simple tree of nested div tags. This allows us to explore components without any other functional expectations.
 
 First, let's create a couple of presenters in the ComponentAppPresenters folder.
 
@@ -268,7 +268,7 @@ The goal is to add TreeNode components to the Tree presenter from the ComponentA
 </hx>
 ```
 
-Here the Tree tag is no longer self-closing, bu has some tags within it. These are not presenter reference tags, however. These tags have the h-component attribute. This indicates to the framework that they are components of the Tree presenter. 
+Here the Tree tag is no longer self-closing, rather, it has some tags within it. These are not presenter reference tags, however. These tags have the h-component attribute. This indicates to the framework that they are components of the Tree presenter. 
 
 The "TreeNode=>AddTreeNodeHandler" part indicates two things. The "TreeNode" part indicates that the components are TreeNode presenters. The "AddTreeNodeHandler" indicates which handler on the parent presenter, in this case Tree, will handle the TreeNode presenter instance. "AddTreeNodeHandler" is a declaration by the Tree presenter, and it indicates a method to call on the constructor function that will handle the TreeNode component. So, let's add that declaration to the Tree presenter.
 
@@ -563,9 +563,9 @@ Taking a look in the console log, we can see the new parameters object that is p
 
 ###### goto &rarr; [(prev)](#ComponentStartParameters) - [(next)](#FinalCode) - [(top)](#top)
 
-A presenter that can receive components can have multiple component handles. This could be used to separate our different kinds of components, or it could be used to arrange components differently based on which handler is called.In this example, we will create a second component handler for Tree and then set Node2 and Node3 to use the second handler. 
+A presenter can have multiple component handlers. This could be used to separate our different kinds of components, or it could be used to arrange components differently based on which handler is called. In this example, we will create a second component handler for Tree and then set Node2 and Node3 to use the second handler. 
 
-We need todo the following.
+We need to do the following.
 1. Add the new component handler declaration in Tree presenter, AddTreeNodeHandlerNew.
 1. Add the new method in Tree presenter to handle the components.
 1. Create a new div tag to contain the nodes from the second handler.
@@ -625,10 +625,10 @@ Full Code Tree.html
 </style>
 ```
 
-In 
+In ComponentAppEntryPoint, we need to set the handler from Node2 and Node3 to the new handler.
 ```
-<hx h-component="TreeNode=>AddTreeNodeHandler" h-handle="nodes.node2" h-start-parameter='{"name": "Node2"}'></hx>
-<hx h-component="TreeNode=>AddTreeNodeHandler" h-handle="nodes.node3" h-start-parameter='{"name": "Node3"}'></hx>
+<hx h-component="TreeNode=>AddTreeNodeHandlerNew" h-handle="nodes.node2" h-start-parameter='{"name": "Node2"}'></hx>
+<hx h-component="TreeNode=>AddTreeNodeHandlerNew" h-handle="nodes.node3" h-start-parameter='{"name": "Node3"}'></hx>
 ```
 
 Full Code ComponentAppEntryPoint.html
