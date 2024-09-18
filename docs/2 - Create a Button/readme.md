@@ -401,7 +401,7 @@ t.hularion.principal.addEventListener("click", ()=>{
     t.hularion.publisher.Click.publish();
 });
 ```
-In this code block, we are adding an event listener on "principal", which is the DOM element of the Button instance. When that event happensm we are first logging the event to the console. Then, we are using the publisher to publish to Click. The Click object is automatically assigned by HX due to the declaration at the top. 
+In this code block, we are adding an event listener on "principal", which is the DOM element of the Button instance. When that event happens, we are first logging the event to the console. Then, we are using the publisher to publish to Click. The Click object is automatically assigned by HX due to the declaration at the top. 
 
 
 Here its the complete Button.html code.

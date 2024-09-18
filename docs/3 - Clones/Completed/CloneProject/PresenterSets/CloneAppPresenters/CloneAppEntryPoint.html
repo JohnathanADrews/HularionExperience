@@ -1,0 +1,96 @@
+<h1>Clone App</h1>
+
+<hx h-clone-instance="labelClone" h-handle="labelInstace1" />
+<br>
+<hx h-clone-instance="labelClone" h-handle="labelInstace2" />
+<br>
+<div h-handle="divCloneContainer" class="divCloneContainer"></div>
+
+
+<!-- Although not necessary, clones should be after the presenter view but before the script. -->
+
+<label h-clone="labelClone"></label>
+
+<div h-clone="divClone" class="divClone">
+	<div class="outerDiv">
+		<div class="innerDiv">
+			<h1 h-handle="h1"></h1>
+		</div>
+		<p h-handle="p"></p>
+	</div>
+</div>
+
+
+<script>
+
+    function CloneAppEntryPoint() {
+    }
+
+    CloneAppEntryPoint.prototype = {
+
+        start: function (parameters) {
+            var t = this;
+            
+            console.log("CloneAppEntryPoint.start - ", t, window);
+			
+			var clone1 = t.hularion.createClone("labelClone");			
+            console.log("CloneAppEntryPoint.start clone1 - ", clone1);
+			clone1.dome.innerHTML = "label1-";
+			t.hularion.principal.append(clone1.dome);
+			
+			var clone2 = t.hularion.createClone("labelClone");			
+            console.log("CloneAppEntryPoint.start clone2 - ", clone2);
+			clone2.dome.innerHTML = "label2-";
+			t.hularion.principal.append(clone2.dome);
+			
+			var clone3 = t.hularion.createClone("labelClone");			
+            console.log("CloneAppEntryPoint.start clone3 - ", clone3);
+			clone3.dome.innerHTML = "label3-";
+			t.hularion.principal.append(clone3.dome);
+						
+			var divClone1 = t.hularion.createClone("divClone");			
+            console.log("CloneAppEntryPoint.start divClone1 - ", divClone1);
+			divClone1.handles.h1.innerHTML = "h1-1";
+			divClone1.handles.p.innerHTML = "p-1";
+			t.divCloneContainer.append(divClone1.dome);
+			
+			var divClone2 = t.hularion.createClone("divClone");			
+            console.log("CloneAppEntryPoint.start divClone2 - ", divClone2);
+			divClone2.handles.h1.innerHTML = "h1-2";
+			divClone2.handles.p.innerHTML = "p-2";
+			t.divCloneContainer.append(divClone2.dome);
+			
+			t.labelInstace1.dome.innerHTML = "labelInstace1";
+			t.labelInstace2.dome.innerHTML = "labelInstace2";
+        }
+    }
+
+</script>
+
+<style>
+
+	.divCloneContainer{
+		display: inline-block;
+	}
+
+	.divClone{
+		width:200px;
+		height:200px;
+		margin:20px;
+		background-color: black;
+		float:left;
+	}
+	
+	.outerDiv{
+		width:80%;
+		height:80%;
+		background-color: lightblue;
+	}
+	
+	.innerDiv{
+		width:80%;
+		height:80%;
+		background-color: lightgreen;
+	}
+
+</style>
