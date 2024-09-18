@@ -6,7 +6,7 @@
 
 &nbsp;
 
-# Hularion Experience - Clones
+# Hularion Experience - Components
 
 &nbsp;
 
