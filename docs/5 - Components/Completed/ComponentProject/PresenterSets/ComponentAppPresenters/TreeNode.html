@@ -1,0 +1,43 @@
+
+<hx h-component-handler="AddTreeNodeHandler" h-method="addTreeNode" h-encoding="json" />
+
+<h4 h-handle="name">TreeNode</h4>
+
+<div h-handle="nodes" class="nodes">
+
+<script>
+
+    function TreeNode() {
+    }
+
+    TreeNode.prototype = {
+
+        start: function (parameters) {     
+			var t = this;       		
+            console.log("TreeNode.start - ", t, parameters);
+			
+			t.name.innerHTML = parameters.name;
+        },
+		
+		addTreeNode: function(node, parameters){
+			var t = this;       		
+            console.log("TreeNode.addTreeNode - ", t, node, parameters);
+			t.nodes.append(node.dome);
+		}
+	}
+
+</script>
+
+<style>
+
+	.this{
+		margin:10px;
+	}
+	
+	.nodes{
+		display: inline-block;
+		border: solid 1px red;
+		width: 100%;
+	}
+
+</style>

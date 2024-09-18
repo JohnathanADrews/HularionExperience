@@ -1,0 +1,51 @@
+
+<hx h-component-handler="AddTreeNodeHandler" h-method="addTreeNode" />
+<hx h-component-handler="AddTreeNodeHandlerNew" h-method="addTreeNodeNew" />
+
+<h4>Tree</h4>
+
+<div h-handle="nodes" class="nodes"></div>
+<div h-handle="nodesNew" class="nodesNew"></div>
+
+<script>
+
+    function Tree() {
+    }
+
+    Tree.prototype = {
+
+        start: function (parameters) {     
+			var t = this;       		
+            console.log("Tree.start - ", t, window);
+
+        },		
+		
+		addTreeNode: function(node, parameters){
+			var t = this;			
+            console.log("Tree.addTreeNode - ", t, node, parameters);
+			t.nodes.append(node.dome);
+		},		
+		
+		addTreeNodeNew: function(node, parameters){
+			var t = this;			
+            console.log("Tree.addTreeNodeNew - ", t, node, parameters);
+			t.nodesNew.append(node.dome);
+		}
+	}
+
+</script>
+
+<style>
+
+	.nodes{
+		display: inline-block;
+		border: solid 1px green;
+		width: 100%;
+	}
+	.nodesNew{
+		display: inline-block;
+		border: solid 3px blue;
+		width: 100%;
+	}
+
+</style>

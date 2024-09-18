@@ -1,0 +1,32 @@
+<h1>Component App</h1>
+
+<hx h-presenter="Tree" h-handle="tree">
+	<hx h-component="TreeNode=>AddTreeNodeHandler" h-handle="nodes.node1" h-start-parameter='{"name": "Node1"}'>
+		<hx h-component="TreeNode=>AddTreeNodeHandler" h-handle="nodes.node4" h-start-parameter='{"name": "Node4"}'>			
+			<hx h-component="TreeNode=>AddTreeNodeHandler" h-handle="nodes.node5" h-start-parameter='{"name": "Node5"}'>						
+				<hx h-component="TreeNode=>AddTreeNodeHandler" h-handle="nodes.node6" h-start-parameter='{"name": "Node6"}'>
+				</hx>
+			</hx>									
+			<hx h-component="TreeNode=>AddTreeNodeHandler" h-handle="nodes.node7" h-start-parameter='{"name": "Node7"}'>
+			</hx>
+		</hx>
+	</hx>
+	<hx h-component="TreeNode=>AddTreeNodeHandlerNew" h-handle="nodes.node2" h-start-parameter='{"name": "Node2"}'></hx>
+	<hx h-component="TreeNode=>AddTreeNodeHandlerNew" h-handle="nodes.node3" h-start-parameter='{"name": "Node3"}'></hx>
+</hx>
+
+<script>
+
+    function ComponentAppEntryPoint() {
+    }
+
+    ComponentAppEntryPoint.prototype = {
+
+        start: function (parameters) {
+            var t = this;
+            
+            console.log("ComponentAppEntryPoint.start - ", t, window);
+        }
+    }
+
+</script>
