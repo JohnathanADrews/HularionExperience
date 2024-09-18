@@ -1,0 +1,95 @@
+<h1>Template App</h1>
+
+<div h-handle="container" class="container">
+	<hx h-template-instance="firstTemplate" h-handle="templates.template1" />
+	<hx h-template-instance="firstTemplate" h-handle="templates.template2" />
+	<hx h-template-instance="secondTemplate" h-handle="templates.template3" />
+</div>
+
+<div h-template="firstTemplate" class="firstTemplate">
+	<div h-handle="innerDiv" class="innerDiv">
+		<label h-handle="label"></label>
+	</div>
+	<hx h-presenter="PresenterA" h-handle="presenterA" />
+</div>
+
+<div h-template="secondTemplate" class="secondTemplate">
+	<hx h-clone-instance="clone1" h-handle="label" />
+	<hx h-template-instance="firstTemplate" h-handle="templates.template1" />
+</div>
+
+<label h-clone="clone1">Clone label</label>
+
+<script>
+
+    function TemplateAppEntryPoint() {
+    }
+
+    TemplateAppEntryPoint.prototype = {
+
+        start: function (parameters) {
+            var t = this;
+            
+            console.log("TemplateAppEntryPoint.start - ", t, window);
+			
+			var jsTemplate1 = t.hularion.createTemplate("firstTemplate");
+            console.log("TemplateAppEntryPoint.start - jsTemplate1 -  ", jsTemplate1);
+			jsTemplate1.handles.label.innerHTML = "createTemplate 1";
+			t.container.append(jsTemplate1.dome);
+			
+			var jsTemplate2 = t.hularion.createTemplate("firstTemplate");
+			jsTemplate2.handles.label.innerHTML = "createTemplate 2";
+			t.container.append(jsTemplate2.dome);
+            console.log("TemplateAppEntryPoint.start - jsTemplate1 -  ", jsTemplate1);
+			
+			t.templates.template1.handles.label.innerHTML = "template 1";
+			t.templates.template2.handles.label.innerHTML = "template 2";
+			
+			t.templates.template1.handles.presenterA.proxy.setName("Temp 1 A");
+			t.templates.template2.handles.presenterA.proxy.setName("Temp 2 A");
+			
+			t.templates.template1.handles.presenterA.publisher.MouseEnter.subscribe((o,e)=>{
+				t.templates.template1.handles.presenterA.proxy.setColor("red");
+			});
+			t.templates.template1.handles.presenterA.publisher.MouseLeave.subscribe((o,e)=>{
+				t.templates.template1.handles.presenterA.proxy.setColor("lightblue");
+			});
+			
+			t.templates.template2.handles.presenterA.publisher.MouseEnter.subscribe((o,e)=>{
+				t.templates.template2.handles.presenterA.proxy.setColor("green");
+			});
+			t.templates.template2.handles.presenterA.publisher.MouseLeave.subscribe((o,e)=>{
+				t.templates.template2.handles.presenterA.proxy.setColor("lightblue");
+			});
+        }
+    }
+
+</script>
+
+<style>
+
+	.container{
+		width:100%;
+		display:inline-block;
+	}
+	.container > *{
+		float:left;
+		margin:5px;
+	}
+	
+	.firstTemplate{
+		width: 150px;
+		height: 150px;
+		background-color:black;
+	}
+	.innerDiv{
+		width:50%;
+		height:50%;
+		background-color:lightgreen;
+	}
+	
+	.secondTemplate{
+		border-top: solid 10px red;
+	}
+
+</style>

@@ -1,0 +1,49 @@
+<hx h-publisher="MouseEnter" />
+<hx h-publisher="MouseLeave" />
+
+<hx h-proxy="setName" />
+<hx h-proxy="setColor" />
+
+
+<h3 h-handle="name">Presenter A</h3>
+
+<hx h-presenter="PresenterB" />
+
+<script>
+
+    function PresenterA() {
+    }
+
+    PresenterA.prototype = {
+
+        start: function (parameters) {     
+			var t = this;       		
+            console.log("PresenterA.start - ", t, window);
+
+			t.hularion.principal.addEventListener("mouseenter", ()=>{
+				t.hularion.publisher.MouseEnter.publish({ event: "enter"});
+			});
+			t.hularion.principal.addEventListener("mouseleave", ()=>{
+				t.hularion.publisher.MouseLeave.publish({ event: "leave"});
+			});
+        },
+		
+		setName: function(name){
+			this.name.innerHTML = name;
+		},
+		
+		setColor:  function(color){
+			this.hularion.principal.style.color = color;
+		}
+	}
+
+</script>
+
+<style>
+
+	.this{
+		color:lightblue;
+		background-color:black;
+	}
+	
+</style>

@@ -1,0 +1,27 @@
+<h4>Presenter B</h4>
+
+<hx h-presenter="PresenterC" />
+
+<script>
+
+    function PresenterB() {
+    }
+
+    PresenterB.prototype = {
+
+        start: function (parameters) {     
+			var t = this;       		
+            console.log("PresenterB.start - ", t, window);
+
+        }
+	}
+
+</script>
+
+<style>
+
+	.this{
+		color:yellow;
+	}
+	
+</style>
