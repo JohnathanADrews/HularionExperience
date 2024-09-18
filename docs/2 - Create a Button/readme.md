@@ -107,7 +107,7 @@ In this article, we will discuss many of the basic features of Hularion Experien
 
 #### Load the ButtonApp Applcation
 
-In Hularion Developer, select Package->ViewSources.
+In Hularion Developer, select Package->ViewSources. Then, click Add Source.
 
 ![Image](ViewSources.png)
 

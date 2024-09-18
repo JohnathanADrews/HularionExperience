@@ -115,7 +115,7 @@ In Hularion Experience, there are two types of templating mechanisms, clones and
 
 #### Load the CloneApp Applcation
 
-In Hularion Developer, select Package->ViewSources.
+In Hularion Developer, select Package->ViewSources. Then, click Add Source.
 
 ![Image](ViewSources.png)
 
@@ -142,7 +142,7 @@ The running application:
 
 ###### goto &rarr; [(prev)](#Setup) - [(next)](#AddingDivClone) - [(top)](#top)
 
-In CloneAppEntryPoint, add the following tag after the h1 tag.
+In CloneAppEntryPoint.html, add the following tag after the h1 tag.
 ```
 <label h-clone="labelClone" h-handle="label"></label>
 ```
@@ -186,7 +186,7 @@ We can now add the clone logic in the javascript and create a few clones, change
 
 </script>
 ```
-Notice that the t.hularion.createClone method is used to create the clone by passing the name of the clone. this.hularion.presenter is a reference to the DOM element of the presenter instance, which is where the clones are being added.
+Notice that the t.hularion.createClone method is used to create the clone by passing the name of the clone. this.hularion.principal is a reference to the DOM element of the presenter instance, which is where the clones are being added.
 
 ![Image](LabelClones.png)
 
@@ -212,7 +212,7 @@ We will also add a condainer div for our div clones.
 ```
 <div h-handle="divCloneContainer" class="divCloneContainer"></div>
 ```
-Then, some styling to better observe the divs.
+Then, add some styling to better observe the divs.
 ```
 <style>
 
@@ -258,7 +258,7 @@ divClone2.handles.p.innerHTML = "p-2";
 t.divCloneContainer.append(divClone2.dome);
 ```
 
-As you can see, we are using the "handles" oject attached to each clone. This provides access to those elements without needing to use any DOM queries.
+As you can see, we are using the "handles" oject attached to each clone. This provides access to elements elements with the corresponding h-handle attribute without needing to use any DOM queries.
 
 Full code:
 ```
@@ -362,7 +362,7 @@ Full code:
 
 ###### goto &rarr; [(prev)](#AddingDivClone) - [(next)](#FinalCode) - [(top)](#top)
 
-In HX, you can create instances of clones and insert them as tags onto the presenter. In this example, we will create a couple of labelClone instances and add them just under the Clone App h1 tag. Use the following code.
+In HX, you can create instances of clones and insert them as tags onto the presenter. !(Note that in the current framework version, every instance must have an associated h-handle attribut to work.) In this example, we will create a couple of labelClone instances and add them just under the Clone App h1 tag. Use the following code.
 ```
 <hx h-clone-instance="labelClone" h-handle="labelInstace1" />
 <br>
