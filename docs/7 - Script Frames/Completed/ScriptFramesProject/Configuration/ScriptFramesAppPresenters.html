@@ -1,0 +1,12 @@
+<hx h-presenter-configuration="ScriptFramesProject-ScriptFramesAppPresenters-Config" h-presenter-set="ScriptFramesAppPresenters">
+
+    <hx h-import-presenter="this" h-import-set="Common" h-frame="Common"></hx>
+    <hx h-presenter-frame="Common" h-attach="frame" h-handle="sets.common"></hx>	
+	<hx h-presenter-frame="Common" h-attach="inject" h-handle="frames.common"></hx>	
+	
+	<hx h-import-script="this" h-import-set="MyScripts" h-frame="sfMyScripts"></hx>
+	<hx h-script-frame="sfMyScripts" h-attach="frame" h-handle="sets.calculator" h-assign="new Calculator();"></hx>
+	<hx h-script-frame="sfMyScripts" h-attach="inject" h-handle="frames.calculator" h-assign="new Calculator();"></hx>
+	
+    <hx h-script-frame="sfMyScripts" h-attach="frame" h-handle="sets.msScripts.api" h-assign="new API();"></hx>	
+</hx>

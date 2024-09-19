@@ -1,0 +1,40 @@
+<h1>Script Frames App</h1>
+
+<hx h-presenter="Common/Button" />
+
+<script>
+
+    function ScriptFramesAppEntryPoint() {
+    }
+
+    ScriptFramesAppEntryPoint.prototype = {
+
+        start: function (parameters) {
+            var t = this;
+            
+            console.log("ScriptFramesAppEntryPoint.start - ", t, window.sets);
+			
+			
+			console.log("ScriptFramesAppEntryPoint.start - add(2,5) - ", window.sets.calculator.add(2, 5));
+			console.log("ScriptFramesAppEntryPoint.start - subtract(3,6) - ", window.sets.calculator.subtract(3,6));
+			console.log("ScriptFramesAppEntryPoint.start - multiply(4,7) - ", window.sets.calculator.multiply(4,7));
+			console.log("ScriptFramesAppEntryPoint.start - divide(5,8) - ", window.sets.calculator.divide(5, 8));
+			
+			
+			console.log("ScriptFramesAppEntryPoint.start - new Calulator - ", new window.sets.msScripts.api.Calculator());
+			console.log("ScriptFramesAppEntryPoint.start - new Worker - ", new window.sets.msScripts.api.Worker());
+			
+			
+			var common = window.sets.msScripts.api.getCommonPresenters();
+			console.log("ScriptFramesAppEntryPoint.start - getCommonPresenters - ", common);
+			console.log("ScriptFramesAppEntryPoint.start - getCommonPresenters - Button - ", common.presenters.Button.create());
+						
+			var jobs = window.sets.msScripts.api.getJobs();
+			console.log("ScriptFramesAppEntryPoint.start - getJobs - ", jobs);
+			jobs.addJob();
+			jobs.removeJob();
+			
+        }
+    }
+
+</script>
