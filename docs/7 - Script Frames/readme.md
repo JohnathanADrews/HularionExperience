@@ -1,27 +1,146 @@
+<a id="top"></a> 
 
 ![Image](Hularion.png)
+#### Hularion - *Software with a Strategy*
+#### Hularion Experience (HX) - A modular client application framework for web and desktop using HTML, CSS, and JS.
 
-# Hularion - *Software with a Strategy*
+&nbsp;
 
-##### Hularion TM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Software with a Strategy TM
+# Hularion Experience - Script Frames
 
 &nbsp;
 
 ## Prerequisites
 
-If you are unfamiliar with Hularion Experience, please take a look at the following documents. In addition to documents 1 and 2, document 6 conveys information that this document will assume the reader understands.
+If you are unfamiliar with Hularion Experience, please review the following article(s) before continuing. 
 
-Document 1 - Getting Started
+#### Article 1 - Getting Started
 
 https://github.com/JohnathanADrews/HularionExperience/tree/main/docs/1%20-%20GettingStarted/readme.md
 
-Document 2 - Basics - Create a Button
+
+#### Article 2 - Basics - Create a Button
 
 https://github.com/JohnathanADrews/HularionExperience/blob/main/docs/2%20-%20Create%20a%20Button/readme.md
 
-Document 6 - Presenter Frames
+#### Article 6 - Presenter Frames
 
 https://github.com/JohnathanADrews/HularionExperience/blob/main/docs/6%20-%20Presenter%20Frames/readme.md
+
+&nbsp;
+<a id="Requirements"></a>
+## Requirements
+
+#### Hularion Developer - https://github.com/JohnathanADrews/HularionDeveloper
+
+Please use the latest release. Alternatively, you can run it from your IDE by setting the HularionDeveloper project as the startup project.
+
+&nbsp;
+
+## Contents 
+
+1. [Introduction](#Introduction)
+1. [Setup](#Setup)
+1. [Adding a Label Clone](#AddingLabelClone)
+1. [Adding a Div Clone](#AddingDivClone)
+1. [Clone Instances](#CloneInstances)
+1. [Final Code](#FinalCode)
+
+
+
+&nbsp;
+<a id="Introduction"></a>
+## Introduction
+
+###### goto &rarr; [(next)](#Setup) - [(top)](#top)
+
+
+Until this point, most of the discussion has been about presenters and how to develop them. However, sometimes we may want to use javascript utilities outside the context of a presenter.  In the Presenter Frames document, we discussed the need for different frames to manage presenter code from different presenter sets. In this document, we will discuss how to create a script set, a script frame, and then use those frames to share functionality across frames. In this example, we will use a similar setup to what we had at the end of "Document 6 - Presenter Frames" 
+
+
+[Changes in Progress]
+
+&nbsp;
+<a id="Setup"></a>
+## Setup
+
+###### goto &rarr; [(prev)](#Introduction) - [(next)](#AddingLabelClone) - [(top)](#top)
+
+1. Open the Hularion Developer application as set out in the [(Requirements)](#Requirements).
+2. Copy the content of the [Setup](Setup) folder into a local folder. Alternatively, you can create the folder structure and files as follows.
+
+#### Directory Structure and Files
+
+![Image](Setup.png)
+
+
+#### CloneProject.hxproject
+```
+<hx h-hxpackage="true"
+	h-package-name="Clone Project"
+	h-version="1.0.0"
+	h-package-key="CloneProject">
+
+</hx>
+```
+
+#### CloneApp.html
+```
+<hx h-application="true"
+	h-application-key="CloneApp"
+	h-application-name="Clone Application"
+	h-presenter-set="CloneAppPresenters"
+	h-application-presenter="CloneAppEntryPoint"
+	h-application-is-default="true">
+</hx>
+```
+
+#### CloneAppEntryPoint.html
+```
+<h1>Clone App</h1>
+
+
+<script>
+
+	function CloneAppEntryPoint() {
+	}
+
+	CloneAppEntryPoint.prototype = {
+
+		start: function (parameters) {
+			var t = this;
+			
+			console.log("CloneAppEntryPoint.start - ", t, window);
+
+		}
+	}
+
+</script>
+```
+
+#### Load the CloneApp Application
+
+In Hularion Developer, select Package->ViewSources. Then, click Add Source.
+
+![Image](ViewSources.png)
+
+Enter a Name and a Location, which is the directory in which CloneProject.hxproject was placed. Then, click Create. The Create button will then be replaced by an Update button and a Delete button.
+![Image](CreateSource.png)
+
+Go to Package->View Packages. You will see the Clone Project package. It has a green tip, which means that it is sourced from a project, as opposed to a compiled package. Click the Add button to add the project. The Add button will be replaced by a Remove button.
+
+![Image](AddProject.png)
+
+Next, go to Apps->My Apps. You should see a line for Clone Application. Click Run, which will cause the application to load in another tab.
+
+![Image](RunApplication.png)
+
+The running application:
+
+![Image](RunningApplication.png)
+
+
+
 
 
 
