@@ -113,7 +113,7 @@ In Hularion Experience, there are two types of templating mechanisms, clones and
 </script>
 ```
 
-#### Load the CloneApp Applcation
+#### Load the CloneApp Application
 
 In Hularion Developer, select Package->ViewSources. Then, click Add Source.
 

@@ -277,7 +277,7 @@ Here is the declaration.
 <hx h-component-handler="AddTreeNodeHandler" h-method="addTreeNode" />
 ```
 
-As you can see, it has the attribute h-component-handler="AddTreeNodeHandler", which indicates the handler in ComponentAppEntryPoint. It also has the  h-method="addTreeNode" attribute. This directs any incoming components to that method on the Tree constructor function. So, let's add that method.
+The tag has the attribute h-component-handler="AddTreeNodeHandler", which indicates the handler in ComponentAppEntryPoint. It also has the  h-method="addTreeNode" attribute. This directs any incoming components to that method on the Tree constructor function. So, let's add that method.
 ```
 addTreeNode: function(node, parameters){
 	var t = this;			

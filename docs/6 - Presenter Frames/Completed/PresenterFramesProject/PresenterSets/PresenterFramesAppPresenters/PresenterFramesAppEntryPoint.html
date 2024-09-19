@@ -1,0 +1,29 @@
+<h1>Presenter Frames App</h1>
+
+<hx h-presenter="Common/Button" />
+
+<script>
+
+    function PresenterFramesAppEntryPoint() {
+    }
+
+    PresenterFramesAppEntryPoint.prototype = {
+
+        start: function (parameters) {
+            var t = this;
+            
+            console.log("PresenterFramesAppEntryPoint.start - ", t, window.sets);
+			
+			
+			var frameButton = sets.common.presenters.Button.create();
+			frameButton.proxy.setText("Frame Button");
+			t.hularion.principal.append(frameButton.dome);
+			
+			
+			var injectButton = t.frames.common.presenters.Button.create();
+			injectButton.proxy.setText("Inject Button");
+			t.hularion.principal.append(injectButton.dome);
+        }
+    }
+
+</script>
