@@ -295,13 +295,15 @@ PresentationFrame.prototype = {
         //Add components
         //instance.AddComponents(presenter.components);
 
-        //Add templates instances
+        //Add template instances
         hularion.Control.TransformEach(presenter.templateInstances, ti => {
             var template = createTemplate(ti.name, ti.parameter);
             var node = indexed[ti.index];
             node.after(template.dome);
             node.remove();
-            hularion.Control.SetObjectAtReference(instance.presenter.code, ti.handle, template, ".");
+            if (ti.handle != null && ti.handle.trim() != "") {
+                hularion.Control.SetObjectAtReference(instance.presenter.code, ti.handle, clone, ".");
+            }
         });
 
         //Add clone instances
@@ -313,7 +315,9 @@ PresentationFrame.prototype = {
             var node = indexed[ci.index];
             node.after(clone.dome);
             node.remove();
-            hularion.Control.SetObjectAtReference(instance.presenter.code, ci.handle, clone, ".");
+            if (ci.handle != null && ci.handle.trim() != "") {
+                hularion.Control.SetObjectAtReference(instance.presenter.code, ci.handle, clone, ".");
+            }
         });
 
         if (parameters.startParameter == null) { parameters.startParameter = "{}"; }

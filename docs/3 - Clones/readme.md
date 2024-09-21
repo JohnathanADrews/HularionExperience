@@ -362,7 +362,7 @@ Full code:
 
 ###### goto &rarr; [(prev)](#AddingDivClone) - [(next)](#FinalCode) - [(top)](#top)
 
-In HX, you can create instances of clones and insert them as tags onto the presenter. !(Note that in the current framework version, every instance must have an associated h-handle attribute to work.) In this example, we will create a couple of labelClone instances and add them just under the Clone App h1 tag. Use the following code.
+In HX, you can create instances of clones and insert them as tags onto the presenter. In this example, we will create a couple of labelClone instances and add them just under the Clone App h1 tag. Use the following code.
 ```
 <hx h-clone-instance="labelClone" h-handle="labelInstace1" />
 <br>
@@ -613,9 +613,7 @@ Similarly, instances of divClone could be placed onto the presenter and could th
 
 &nbsp;
 <a id="End"></a>
-### The End 
+## The End 
 Please take a look a this [Completed](Completed) folder for the final project.
 ###### goto &rarr; [(prev)](#FinalCode) - [(top)](#top)
 
-
-### The End

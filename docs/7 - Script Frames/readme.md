@@ -57,7 +57,7 @@ Please use the latest release. Alternatively, you can run it from your IDE by se
 ###### goto &rarr; [(next)](#Setup) - [(top)](#top)
 
 
-Until this point, most of the discussion has been about presenters and how to develop them. However, sometimes we may want to use javascript utilities outside the context of a presenter.  In the Presenter Frames document, we discussed the need for different frames to manage presenter code from different presenter sets. In this document, we will discuss how to create a script set, a script frame, and then use those frames to share functionality across frames. In this example, we will use a similar setup to what we had at the end of "Document 6 - Presenter Frames" 
+Until this point, most of the discussion has been about presenters and how to develop them. However, sometimes we may want to use javascript utilities outside the context of a presenter.  In the Presenter Frames document, we discussed the need for different frames to manage presenter code from different presenter sets. In this document, we will discuss how to create a script set, a script frame, and then use those frames to share functionality across frames.
 
 
 &nbsp;
@@ -384,7 +384,7 @@ Worker.prototype ={
 }
 ```
 
-Finally, let's add api.js with the following code.
+Then, let's add api.js with the following code.
 ```
 function API(){
 	this.Calculator = Calculator;
@@ -456,7 +456,7 @@ When we refresh the application, we get the following console log.
 
 ![Image](CalculatorWorkerLog.png)
 
-By encapsulating the javascript functionality into a single API constructor function, access to many aspects of the script can be handled with a single frame reference. This also makes it clear to the script library which functionality is being used.
+By encapsulating the javascript functionality into a single API constructor function, access to many aspects of the script can be handled with a single frame reference. This also makes it clear inside the script library which functionality is being used.
 
 &nbsp;
 <a id="LoadingPresenterFramesScriptFrames"></a>
