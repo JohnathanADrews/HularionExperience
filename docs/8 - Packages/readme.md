@@ -191,6 +191,7 @@ In Hularion Developer, select Package->ViewSources. Then, click Add Source.
 ![Image](ViewSources.png)
 
 Enter a Name and a Location, which is the directory in which PackTestProject.hxproject was placed. Then, click Create. The Create button will then be replaced by an Update button and a Delete button.
+
 ![Image](CreateSource.png)
 
 Go to Package->View Packages. You will see the PackTestProject Project package. It has a green tip, which means that it is sourced from a project, as opposed to a compiled package. Click the Add button to add the project. The Add button will be replaced by a Remove button.
@@ -245,29 +246,29 @@ Now that we have a package, let's add it as a source to Hularion Developer.
 
 As you can see, we already have a source for the PackTestProject folder. Now, lets add the MyHXPackages directory, which contains our new package. Click the Add Source button.
 
-![alt text](ViewSourcesMenu.png)
+![Image](ViewSourcesMenu.png)
 
 Enter the MyHXPackages directory as a source. Don't forget to click the Create button.
 
-![alt text](AddSource.png)
+![Image](AddSource.png)
 
 Next, let's look at the packages. Go to Package->View Packages.
 
-![alt text](ViewPackages.png)
+![Image](ViewPackages.png)
 
 As you can see, we now have two PackTestApp entries. The one with the green tip is the project, and the one with the blue tip is the package. Next, click the Install button. This will give us access to the applications within the package.
 
-![alt text](ViewPackagesMenu.png)
+![Image](ViewPackagesMenu.png)
 
 In the installation screen, you will see information about the package. In our test package, we have kept it simple, so there is no license and much of the information is blank. 
 
 Click the license checkbox and then click Install (There is no success/failure notification at time of writing. If you do not see one, it is fine to go to the next step).
 
-![alt text](PackageInstall.png)
+![Image](PackageInstall.png)
 
 Now, go to Apps->My Apps. You will see a second application. which is connected to the installed package. Whereas the Project sourced application is underlined in green, the Package sourced application is underlined in blue. When you click Run on the second line, the application will pop up in a new tab, just as it did for the other application.
 
-![alt text](MyApps.png)
+![Image](MyApps.png)
 
 So, that is how to create and deploy an application using Hularion Developer. In later articles, we will discuss how to deploy packages as standalone desktop applications or web applications.
 
@@ -281,7 +282,7 @@ So, that is how to create and deploy an application using Hularion Developer. In
 
 If you look at the installation screen that appeared when we installed the package, you will see that much of the metadata is missing from the package. In this section, we will add those data.
 
-![alt text](PackageInstallMissingData.png)
+![Image](PackageInstallMissingData.png)
 
 These data are contained within the PackTestProject.hxproject project file.
 
@@ -327,19 +328,19 @@ Next, go through the build process again to create the new package.  [( Build Pr
 
 You should now see a second package in the MyHXPackages folder.
 
-![alt text](SecondPackage.png)
+![Image](SecondPackage.png)
 
 Going to the Package->ViewPackages screen, you will see a new package with the new version number. Click Install to go to the installation screen.
 
-![alt text](ViewPackages2.png)
+![Image](ViewPackages2.png)
 
 Our installation screen now contains the information we added to the package. Notice that it also indicates "Has a License". So, let's install this version and then head back to Package->View Packages. (There is no installation notification at this writing.)
 
-![alt text](InstallWithInfo.png)
+![Image](InstallWithInfo.png)
 
 Finally, let's go to Apps->My Apps and take a look. There is another application for the new version of the package.
 
-![alt text](NewApplication.png)
+![Image](NewApplication.png)
 
 
 &nbsp;
@@ -376,7 +377,7 @@ First, let's create a new folder called PackageSystem and then add the directory
 
 The result should look like the following image.
 
-![alt text](PackageSystemSetup.png)
+![Image](PackageSystemSetup.png)
 
 Here are the file contents.
 
@@ -512,23 +513,23 @@ Button.html
 
 Let's also add the package source (Package->View Sources), but this time we will point it to the package system folder instead of an individual package folder. (Don't be like me and forget to click Create)
 
-![alt text](SystemPackageSource.png)
+![Image](SystemPackageSource.png)
 
 Now, let's take a look at our packages (Package->View Packages).
 
 
-![alt text](PackageSystemView.png)
+![Image](PackageSystemView.png)
 
 As you can see, we now have two additional projects, an AppProject project and a Reusable project. Let's add the AppProject project and then go to Apps->My Apps. 
 
 
-![alt text](PackageSystemApps.png)
+![Image](PackageSystemApps.png)
 
 In My Apps, we now hove our PackTest application and also the Primary App application.
 
 If you click Run, you will see the application in a new tab. However, it is missing the Button.
 
-![alt text](AppNoButton.png)
+![Image](AppNoButton.png)
 
 Next, we will add the button presenter tag to the PrimaryAppEntryPoint presenter.
 
@@ -561,7 +562,7 @@ Full code
 
 When we reload the application, we get the following error in the console. This is because Button does not exist in the AppPresenters presenter set. 
 
-![alt text](ButtonNotFound.png)
+![Image](ButtonNotFound.png)
 
 Before, we solved this problem by adding Button to another presenter set. This time, we need to use a presenter set from another project. To do this, we first need to setup a package reference within the AppProject.hxproject file.
 
@@ -672,7 +673,7 @@ Full code
 
 If you reload the application now, you will see the button.
 
-![alt text](PrimaryAppWithButton.png)
+![Image](PrimaryAppWithButton.png)
 
 
 
@@ -688,11 +689,11 @@ In addition to referencing other projects, we need to be able to reference other
 
 First, let's buld the PackageSystem packages. Click Package->Build Package to go to the package screen, and then enter the source directory and destination directory. We will use the PackageSystem directory as the Source Directory, and we will continue to use the MyHXPackages directory as the Destination Directory. 
 
-![alt text](BuildSystem.png)
+![Image](BuildSystem.png)
 
 After clicking Build Package, we can see that both packages in the package system were built.
 
-![alt text](NewPackages.png)
+![Image](NewPackages.png)
 
 
 Now, let's go to the AppProject.hxproject file and change the package reference, removing the h-project attribute.
@@ -721,16 +722,16 @@ If we reload the application, the button still appears on the application. This 
 
 So, let's also move the Reusable outside of the PackageSystem folder. Now, if you reload the application, the same Button not found error will appear. 
 
-![alt text](ButtonNotFound.png)
+![Image](ButtonNotFound.png)
 
 Let's Install the Reusable package.
 
-![alt text](InstallReusable.png)
+![Image](InstallReusable.png)
 
 
 Let's take a quick look at our application. The default name of the button is "Button"
 
-![alt text](AppLook.png)
+![Image](AppLook.png)
 
 
 
@@ -738,26 +739,26 @@ Let's take a quick look at our application. The default name of the button is "B
 <a id="InstallingApplicationPackage"></a>
 ## Installing an Application Package
 
-###### goto &rarr; [(prev)](#ReferencingBuiltPackages) - [(next)](#AddingLabelClone) - [(top)](#top)
+###### goto &rarr; [(prev)](#ReferencingBuiltPackages) - [(next)](#End) - [(top)](#top)
 
 In this last section, we discussed installing a dependency, Reusable, and referencing it from our AppProject project. We will install the AppProject package and run the application. Then, we will update both packages, install them, and then run the new application version.
 
 First, let's install AppProject.
 
-![alt text](InstallAppProject.png)
+![Image](InstallAppProject.png)
 
 Here is the installtion screen. Notice that we now have a dependency.
 
-![alt text](AppProjectInstallScreen.png)
+![Image](AppProjectInstallScreen.png)
 
 In Apps->My Apps, we now have a new application corresponding to the AppProject package.
 
-![alt text](AppsWithAPPackage.png)
+![Image](AppsWithAPPackage.png)
 
 
 If we run the application, we get the same application screen.
 
-![alt text](RunAP1.png)
+![Image](RunAP1.png)
 
 
 Let's make a couple of simple but noticable changes, and then rebuild the packages.
@@ -815,30 +816,31 @@ Change Reusable.hxproject to version 2.0.0
 Save all the files, and then build the new version.
 
 
-![alt text](BuildPackageSystem2.png)
+![Image](BuildPackageSystem2.png)
 
 Take a look to verify the packages were made.
 
-![alt text](V2Packages.png)
+![Image](V2Packages.png)
 
 In the View Packages screen, we now have two new package-sourced packages for version 2.0.0. This time, we will only install version AppProject 2.0.0. Reusable version 2.0.0 will be automatically installed with AppProject, since it is a dependency.
 
-![alt text](NewV2Packages.png)
+![Image](NewV2Packages.png)
 
 In the installation screen, we can see the updated version for each package.
 
-![alt text](InstallScreenV2.png)
+![Image](InstallScreenV2.png)
 
 Going back to View Packages, we can see that the Reusable package was automatically installed.
 
-![alt text](Reusable2AlreadyInstalled.png)
+![Image](Reusable2AlreadyInstalled.png)
 
 In My Apps, we can see the new version 2.0.0 application.
 
-![alt text](V2App.png)
+![Image](V2App.png)
 
 Finally, we have the result of the version 2.0.0 application.
-![alt text](V2AppFinal.png)
+
+![Image](V2AppFinal.png)
 
 
 
