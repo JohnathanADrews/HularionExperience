@@ -36,7 +36,7 @@ namespace HularionExperience.Plugin.HX
 
         public string Key => "HularionExperience.HXRouter";
 
-        public string Purpose => "Provides  HX resources to Hularion Experience clients.";
+        public string Purpose => "Provides HX resources to Hularion Experience clients.";
 
         public IEnumerable<HularionRoute> Routes => routes;
 

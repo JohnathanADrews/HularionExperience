@@ -397,55 +397,75 @@ namespace HularionExperience.PackageBuilder.ProjectResource
         {
 
             var appNode = document.GetAttibuteNodes(HtmlApplicationAttribute.Application.Attribute).FirstOrDefault();
-            if (appNode != null)
+            if(appNode == null)
             {
-                application.Key = appNode.GetFirstAvailableAttributeValue(new string[] { HtmlApplicationAttribute.ApplicationKey.Attribute, HtmlApplicationAttribute.ObjectKey.Attribute });
-                application.Name = appNode.GetFirstAvailableAttributeValue(new string[] { HtmlApplicationAttribute.ApplicationName.Attribute, HtmlApplicationAttribute.ObjectName.Attribute });
-                application.Description = appNode.GetFirstAvailableAttributeValue(new string[] { HtmlApplicationAttribute.ObjectDescription.Attribute });
-                application.PresenterSet = appNode.GetFirstAvailableAttributeValue(new string[] { HtmlApplicationAttribute.PresenterSet.Attribute });
-                application.Presenter = appNode.GetFirstAvailableAttributeValue(new string[] { HtmlApplicationAttribute.ApplicationPresenter.Attribute });
-                application.PresenterConfiguration = appNode.GetFirstAvailableAttributeValue(new string[] { HtmlApplicationAttribute.PresenterConfiguration.Attribute });
-
-                application.IsDefault = false;
-                var defaultValue = appNode.GetFirstAvailableAttributeValue(new string[] { HtmlApplicationAttribute.ApplicationIsDefault.Attribute });
-                if (string.IsNullOrWhiteSpace(defaultValue)) { return; }
-                bool isDefault = false;
-                bool.TryParse(defaultValue, out isDefault);
-                application.IsDefault = isDefault;
-
-                if (application.PresenterSet.Contains("/"))
-                {
-                    var splits = application.PresenterSet.Split('/');
-                    if (splits.Length >= 2)
-                    {
-                        application.PresenterSet = splits[0];
-                        application.Presenter = splits[1];
-                    }
-                }
-
-                var linkNodes = document.GetAttibuteNodes(HtmlApplicationAttribute.Link.Attribute).ToList();
-                foreach (var linkNode in linkNodes)
-                {
-                    var link = new ProjectLink()
-                    {
-                        Url = linkNode.GetAttributeValue(HtmlPackageAttribute.Link.Attribute),
-                        Name = linkNode.GetAttributeValue(HtmlPackageAttribute.ObjectName.Attribute),
-                        Description = linkNode.CoalesceAttributeValueOrNodeText(HtmlPackageAttribute.ObjectDescription.Attribute)
-                    };
-                    application.Links.Add(link);
-                }
-
+                return;
             }
 
-            //processors.Add(HtmlApplicationAttribute.StyleConfiguration.Attribute, (node, attribute) => application.StyleConfiguration = attribute.Value);
-            //processors.Add(HtmlApplicationAttribute.ApplicationIsDefault.Attribute, (node, attribute) =>
-            //{
-            //    application.IsDefault = false;
-            //    if (String.IsNullOrWhiteSpace(attribute.Value)) { return; }
-            //    bool isDefault = false;
-            //    bool.TryParse(attribute.Value, out isDefault);
-            //    application.IsDefault = isDefault;
-            //});
+            application.Key = appNode.GetFirstAvailableAttributeValue(new string[] { HtmlApplicationAttribute.ApplicationKey.Attribute, HtmlApplicationAttribute.ObjectKey.Attribute });
+            application.Name = appNode.GetFirstAvailableAttributeValue(new string[] { HtmlApplicationAttribute.ApplicationName.Attribute, HtmlApplicationAttribute.ObjectName.Attribute });
+            application.Description = appNode.GetFirstAvailableAttributeValue(new string[] { HtmlApplicationAttribute.ObjectDescription.Attribute });
+            application.PresenterSet = appNode.GetFirstAvailableAttributeValue(new string[] { HtmlApplicationAttribute.PresenterSet.Attribute });
+            application.Presenter = appNode.GetFirstAvailableAttributeValue(new string[] { HtmlApplicationAttribute.ApplicationPresenter.Attribute });
+            application.PresenterConfiguration = appNode.GetFirstAvailableAttributeValue(new string[] { HtmlApplicationAttribute.PresenterConfiguration.Attribute });
+
+            application.IsDefault = false;
+            var defaultValue = appNode.GetFirstAvailableAttributeValue(new string[] { HtmlApplicationAttribute.ApplicationIsDefault.Attribute });
+            if (string.IsNullOrWhiteSpace(defaultValue)) { return; }
+            bool isDefault = false;
+            bool.TryParse(defaultValue, out isDefault);
+            application.IsDefault = isDefault;
+
+            if (application.PresenterSet.Contains("/"))
+            {
+                var splits = application.PresenterSet.Split('/');
+                if (splits.Length >= 2)
+                {
+                    application.PresenterSet = splits[0];
+                    application.Presenter = splits[1];
+                }
+            }
+
+            var linkNodes = document.GetAttibuteNodes(HtmlApplicationAttribute.Link.Attribute).ToList();
+            foreach (var linkNode in linkNodes)
+            {
+                var link = new ProjectLink()
+                {
+                    Url = linkNode.GetAttributeValue(HtmlPackageAttribute.Link.Attribute),
+                    Name = linkNode.GetAttributeValue(HtmlPackageAttribute.ObjectName.Attribute),
+                    Description = linkNode.CoalesceAttributeValueOrNodeText(HtmlPackageAttribute.ObjectDescription.Attribute)
+                };
+                application.Links.Add(link);
+            }
+
+            
+            var traverser = new TreeTraverser<HtmlNode>();
+            var plan = traverser.CreateEvaluationPlan(TreeTraversalOrder.ParentLeftRight, appNode, node => node.Nodes.ToArray(), true);
+
+            foreach (var node in plan)
+            {
+                if (node.HasAttribute(HtmlApplicationAttribute.SelectedStyle.Attribute))
+                {
+                    var value = node.GetAttributeValue(HtmlApplicationAttribute.SelectedStyle.Attribute);
+                    if (!value.Contains("=>"))
+                    {
+                        continue;
+                    }
+                    var parts = value.Split("=>", StringSplitOptions.RemoveEmptyEntries);
+                    if (parts.Length < 2)
+                    {
+                        continue;
+                    }
+                    application.StyleCategories.Add(new StyleCategorySelection()
+                    {
+                        CategoryName = parts[0],
+                        SelectedStyle = parts[1]
+                    });
+
+                }
+            }
+
+
 
 
         }

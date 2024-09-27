@@ -27,6 +27,11 @@ namespace HularionExperience.Boot
 
         public string kernelPackageName { get; set; }
 
+        /// <summary>
+        /// JS file containing the kernel.
+        /// </summary>
+        public string kernelLoader { get; set; }
+
         public string iFrameKernelLoader { get; set; }
 
         public string iFrameLoader { get; set; }

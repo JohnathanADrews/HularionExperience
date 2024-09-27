@@ -38,24 +38,25 @@ using HularionExperience.PackageStores.Composite;
 
 namespace HularionExperience
 {
+    /// <summary>
+    /// The resources for a Hularion Experience application.
+    /// </summary>
     public class HularionExperienceApplication
     {
-
+        /// <summary>
+        /// The HX index.html
+        /// </summary>
         public string IndexPage { get; set; }
 
-        public string Url { get; set; }
-
-        public IList<BrowserRegistrationObject> RegistrationObjects { get; private set; } = new List<BrowserRegistrationObject>();
-
-        public IList<BrowserResourceHandler> ResourceHandlers { get; private set; } = new List<BrowserResourceHandler>();
-
-        public PackageRouter PackageRouter { get; }
-        public StyleCategoryRouter StyleCategoryRouter { get; }
-        //public MetaRouter MetaRouter { get; }
-        public HXRouter HXRouter { get; }
-        //public FileRouteProvider FileRouteProvider { get; }
-
+        /// <summary>
+        /// The details for the client framework to start the application 
+        /// </summary>
         public ApplicationStartup ApplicationStartup { get; set; }
+
+        public HularionRouter Router { get; private set; }
+        public HXRouter HXRouter { get; private set; }
+        public PackageRouter PackageRouter { get; private set; }
+        public StyleCategoryRouter StyleCategoryRouter { get; private set; }
 
         /// <summary>
         /// iff true, HX will attempt to load the kernel from project files rather than embedded resources.
@@ -64,9 +65,7 @@ namespace HularionExperience
 
         public IBootResources BootResources { get; }
         public IHXScreenController ScreenController { get; }
-        public string BaseDirectory { get; }
 
-        public HularionRouter Router { get; }
         private KernelInitializer kernelInitializer;
         private JsonSerializer jsonSerializer = new JsonSerializer(new StringCaseModifier(StringCaseDefinition.StartLower));
         public PackageLoader PackageManager;
@@ -74,17 +73,27 @@ namespace HularionExperience
 
         private Action<string> sendAction = (message)=> { throw new NotImplementedException(String.Format("The send action has not been set. ybJeKPM0XkGb2QvcRZLU0g")); };
 
-        public HularionExperienceApplication(IBootResources bootResources, IHXScreenController screenController, string baseDirectory)
+
+        public HularionExperienceApplication()
         {
-            this.BaseDirectory = baseDirectory;
+            this.BootResources = new BootResources("Boot.Resources");
+            this.ScreenController = new HXScreenController();
 
+            Start();
+        }
+
+        public HularionExperienceApplication(IBootResources bootResources, IHXScreenController screenController)
+        {
             this.ScreenController = screenController;
-
             this.BootResources = bootResources;
+
+            Start();
+        }
+
+        private void Start()
+        {
             this.kernelResources = new KernelResources();
             Router = new HularionRouter("hularion");
-            //MeshJsonSerializer.SetSerializerTypes(Router.Serializer);
-            //MeshJsonSerializer.SetSerializerTypes(Router.Deserializer);
 
             PackageManager = new PackageLoader(Router);
             PackageRouter = new PackageRouter(PackageManager);
@@ -109,17 +118,8 @@ namespace HularionExperience
             StyleCategoryRouter = new StyleCategoryRouter();
             Router.RegisterRouteProvider(StyleCategoryRouter);
 
-            //ApplicationStateRouter = new ApplicationStateRouter(stateStore, packageManager);
-            //Router.RegisterRouteProvider(ApplicationStateRouter);
-
-            //FileRouteProvider = new FileRouteProvider();
-            //Router.RegisterRouteProvider(FileRouteProvider);
-
-            HXRouter = new HXRouter(bootResources, screenController);
+            HXRouter = new HXRouter(BootResources, ScreenController);
             Router.RegisterRouteProvider(HXRouter);
-
-            //this.jsonSerializer = new JsonSerializer(new StringCaseModifier(StringCaseDefinition.StartLower));
-            //MeshJsonSerializer.SetSerializerTypes(this.jsonSerializer);
         }
 
         public void Load()
@@ -164,12 +164,11 @@ namespace HularionExperience
             {
                 iFrameKernelLoader = kernelResources.GetIFrameKernelLoader(),
                 iFrameLoader = kernelResources.GetIFrameLoader(),
+                kernelLoader = kernelResources.GetKernelLoader(),
                 kernelPackageName = "Hularion Experience",
                 kernelPackage = systemPackage.Package.Partial.ClientPackage,
                 ApplicationStartup = ApplicationStartup
             };
-
-
 
         }
 
@@ -187,13 +186,6 @@ namespace HularionExperience
             var result = jsonSerializer.Serialize(kernelInitializer, JsonSerializationSpacing.Expanded);
             return result;
         }
-
-        //public WebApplication GetPlayerApplication()
-        //{
-        //    var package = hularion.PackageManager.GetPackage(new PackageIndicator() { Key = "HularionExperience" });
-        //    var application = package.WebPackage.applications.First();
-        //    return application.Value;
-        //}
 
         /// <summary>
         /// Processes requests from the web UI.

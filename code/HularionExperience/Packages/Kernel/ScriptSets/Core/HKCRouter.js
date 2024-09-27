@@ -48,19 +48,6 @@ HKCRouter.prototype = {
                 handler: routeDefinition.handler
             }
         });
-    //hularion.router.Request({
-    //    key: hularion.keyProvider().toString(),
-    //    route: "hularion/registration/register",
-    //    detail: {
-    //        route: "hularion/client/style/category/select",
-    //        handler: (request) => {
-    //            t.SelectCategory(request.category, request.option);
-    //            //console.log("StyleManager - hularion/client/style/category/select ", request);
-    //        }
-    //    }
-    //});
-
-        //return hularion.communicator.request();
     },
 
     AddServerRoutes: function (routeDefinitions) {

@@ -90,6 +90,18 @@ namespace HularionExperience.PackageBuilder.ProjectResource.Transforms
                     SetName = setName,
                     PresenterName = presenter.Name
                 };
+
+                if (styleNode.HasAttribute(HtmlPresenterAttribute.StyleCategory.Attribute))
+                {
+                    var value = String.Format("{0}", styleNode.GetAttributeValue(HtmlPresenterAttribute.StyleCategory.Attribute));
+                    var parts = value.Split("/", StringSplitOptions.RemoveEmptyEntries);
+                    if (parts.Length == 2)
+                    {
+                        style.CategoryKey = String.Format("{0}", parts[0]).Trim();
+                        style.CategoryValue = String.Format("{0}", parts[1]).Trim();
+                    }
+                }
+
                 return style;
                 //return cssDoc.ToDocumentString();
             }).ToList());

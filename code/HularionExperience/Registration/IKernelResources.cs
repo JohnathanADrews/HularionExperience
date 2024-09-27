@@ -29,6 +29,12 @@ namespace HularionExperience.Registration
         IDictionary<string, string> GetKernelPackage();
 
         /// <summary>
+        /// Gets the kernel loader JS.
+        /// </summary>
+        /// <returns></returns>
+        string GetKernelLoader();
+
+        /// <summary>
         /// iframe for the kernel if it loads in iframe mode.
         /// </summary>
         /// <returns></returns>

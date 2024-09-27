@@ -27,19 +27,19 @@ namespace HularionExperience.Embedded.ViewModels
 
         public CefSharp.Wpf.ChromiumWebBrowser CefBrowser { get; set; }
 
-        private HularionExperienceApplication application;
+        private EmbeddedHularionExperienceApplication application;
 
-        public BrowserViewModel(HularionExperienceApplication application, HXScreenController screenController)
+        public BrowserViewModel(EmbeddedHularionExperienceApplication application)
         {
             this.application = application;
-            screenController.ReloadHandler.Handler = new Action(() =>
+            application.ScreenController.ReloadHandler.Handler = new Action(() =>
             {
                 CefBrowser.Dispatcher.Invoke(() =>
                 {
                     ReloadBrowser();
                 });
             });
-            screenController.ShowDevToolsHandler.Handler = new Action(() =>
+            application.ScreenController.ShowDevToolsHandler.Handler = new Action(() =>
             {
                 CefBrowser.Dispatcher.Invoke(() =>
                 {
@@ -55,7 +55,7 @@ namespace HularionExperience.Embedded.ViewModels
 
         public void ReloadBrowser()
         {
-            application.Refresh();
+            application.HXApplication.Refresh();
             Load();
         }
 
@@ -71,9 +71,9 @@ namespace HularionExperience.Embedded.ViewModels
                 handler.Stream.Position = 0;
                 CefBrowser.WebBrowser.RegisterResourceHandler(handler.Url, handler.Stream, mimeType: handler.MimeType);
             }
-            CefBrowser.LoadHtml(application.IndexPage, application.Url);
+            CefBrowser.LoadHtml(application.HXApplication.IndexPage, application.Url);
 
-            application.RegisterRouteSender(message =>
+            application.HXApplication.RegisterRouteSender(message =>
             {
                 CefBrowser.WebBrowser.ExecuteScriptAsync(String.Format("hularionReceiver({0});", message));
             });

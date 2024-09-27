@@ -204,14 +204,14 @@ HularionPresenter.prototype = {
         };
 
         if (t.source.members.length > 0) {
-            console.log("HularionPresenter.CreateProxy proxy Access - ", t.name, "-->", t.source.name, t);
+            //console.log("HularionPresenter.CreateProxy proxy Access - ", t.name, "-->", t.source.name, t);
             hularion.Control.ProcessArray(t.source.members, member => {
 
                 var access = {};
                 for (var i = 0; i < member.access.length; i++) {
                     access[member.access[i]] = 0;
                 }
-                console.log("HularionPresenter.CreateProxy proxy Access  getterMembers- ", t.source.name, "-->", t.source.name, member, access);
+                //console.log("HularionPresenter.CreateProxy proxy Access  getterMembers- ", t.source.name, "-->", t.source.name, member, access);
                 try {
                     if (access["get"] == 0 && access["set"] == 0) {
                         Object.defineProperty(proxy.proxy, member.name, {
@@ -230,7 +230,9 @@ HularionPresenter.prototype = {
                         });
                     }
                 }
-                catch { }
+                catch (e) {
+                    //console.log("HularionPresenter.CreateProxy proxy Access  getterMembers catch- ", t.source.name, "-->", t.source.name, member, access, proxy, e);
+                }
             });
             //hularion.Control.ProcessArray(t.source.getterMembers, member => {
             //    console.log("HularionPresenter.CreateProxy proxy Access  getterMembers- ", t.source.name, "-->", t.source.name, member);

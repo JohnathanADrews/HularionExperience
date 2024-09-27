@@ -40,6 +40,8 @@ namespace HularionExperience.Definition.PackageClient
 
         public bool IsDefault { get; set; }
 
+        public List<ClientStyleCategorySelection> StyleSelections { get; set; } = new();
+
         public ClientApplication()
         {
         }
@@ -55,6 +57,8 @@ namespace HularionExperience.Definition.PackageClient
             PresenterConfiguration = application.PresenterConfiguration;
             StyleConfiguration = application.StyleConfiguration;
             IsDefault = application.IsDefault;
+
+            StyleSelections = application.StyleCategories.Select(x => new ClientStyleCategorySelection(x)).ToList();
         }
 
     }

@@ -8,7 +8,7 @@
 	<ApplicationIcon>HularionIcon.ico</ApplicationIcon>
 	<SignAssembly>False</SignAssembly>
 	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-	<Title>HularionText.Language.Html</Title>
+	<Title>HularionExperience.Embedded</Title>
 	<Authors>Johnathan A Drews</Authors>
 	<Product>Hularion</Product>
 	<Description>HularionExperience.Embedded performs most of the integration required to use Hularion Experience in a desktop environment.</Description>
@@ -19,7 +19,7 @@
 	<RepositoryType>git</RepositoryType>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
 	<PackageTags>hularion app application framework</PackageTags>
-	<Version>3.0.4</Version>
+	<Version>3.0.11</Version>
 	<PackageLicenseFile>LICENSE</PackageLicenseFile>
 	<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
@@ -54,7 +54,7 @@
     <PackageReference Include="CefSharp.Wpf.NETCore" Version="114.2.120" />
     <PackageReference Include="chromiumembeddedframework.runtime.win-arm64" Version="114.2.12" />
     <PackageReference Include="chromiumembeddedframework.runtime.win-x64" Version="114.2.12" />
-    <PackageReference Include="HularionExperience" Version="3.0.4" />
+    <PackageReference Include="HularionExperience" Version="3.0.11" />
   </ItemGroup>
 
   <ItemGroup>

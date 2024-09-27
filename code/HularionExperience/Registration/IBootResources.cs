@@ -25,10 +25,6 @@ namespace HularionExperience.Registration
     /// </summary>
     public interface IBootResources
     {
-        /// <summary>
-        /// Refreshes the boot resources.
-        /// </summary>
-        //public void Refresh();
 
         /// <summary>
         /// The index page.

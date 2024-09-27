@@ -122,11 +122,6 @@ HularionConstructor.prototype = {
 
         t.principal.hularionReceiver = (message) => {
             hularion.router.Request(message);
-            //console.log("Message received - ", message, hularion.routes);
-            //if (hularion.routes.has(message.route)) {
-            //    //console.log("Message handler exists - ", hularion.routes.get(message.route));
-            //    hularion.routes.get(message.route)(message.detail);
-            //}
         };
 
         hularion.routes = new Map();
@@ -155,21 +150,9 @@ HularionConstructor.prototype = {
         hularion.iFrameContainer.style = "display:none;";
         document.getElementsByTagName("body")[0].appendChild(t.iFrameContainer);
 
-        //console.log("HularionConstructor.Initialize window - ", window);
-        //console.log("HularionConstructor.Initialize window.parent - ", window.parent);
-        //console.log("HularionConstructor.Initialize setup - ", setup);
-        //console.log("HularionConstructor.Initialize hularion - ", hularion);
-
-
-        //window.document.body.addEventListener("keydown", e => {
-        //    console.log("HularionConstructor.Initialize keydown - ", e);
-        //});
 
         hularion.styleManager = new StyleManager();
         hularion.styleManager.SetContainer(hularion.cssSection);
-        hularion.styleManager.SelectCategory("Theme", "Light");
-        //hularion.styleManager.SelectCategory("Theme", "Dark");
-        //hularion.styleManager.SelectCategory("Edges", "Round");
 
 
         if (t.principal == window.top && setup.initializer.applicationStartup != null) {
@@ -181,6 +164,9 @@ HularionConstructor.prototype = {
             hularion.packageManager.LoadPackage(locator).then((package) => {
                 hularion.Control.ProcessObjectMemberNameValuePairs(package.specification.applications, pair => {
                     if (pair.value.key == appStartup.startApplication) {
+                        pair.value.styleSelections.forEach(style => {
+                            hularion.styleManager.SelectCategory(style.categoryName, style.selectedStyle);
+                        });
                         t.LoadPresenter(package.specification.key, package.specification.version, pair.value.presenterSet, pair.value.presenter);
                         return false;
                     }

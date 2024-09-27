@@ -46,5 +46,7 @@ namespace HularionExperience.Definition.Project.Concept
 
         public List<string> ScriptImports = new List<string>();
 
+        public List<StyleCategorySelection> StyleCategories { get; set; } = new();
+
     }
 }

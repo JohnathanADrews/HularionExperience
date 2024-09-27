@@ -23,6 +23,9 @@ using System.Threading.Tasks;
 
 namespace HularionExperience.Boot
 {
+    /// <summary>
+    /// Contains information about the resources required to boot the HX kernel in the browser.
+    /// </summary>
     public class BootResources : IBootResources, IKernelResources
     {
         private Assembly assembly;
@@ -30,6 +33,10 @@ namespace HularionExperience.Boot
         private string prefix;
         private string[] resourcesNames;
 
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="prefix">The decimal delimited project prefix containing the boot loader file. (e.g. wwwroot.js.hx)</param>
         public BootResources(string prefix)
         {
             assembly = Assembly.GetExecutingAssembly();
@@ -38,6 +45,11 @@ namespace HularionExperience.Boot
             Refresh();
         }
 
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="prefix">The decimal delimited project prefix containing the boot loader file. (e.g. wwwroot.js.hx)</param>
+        /// <param name="assembly">The assembly containing the boot loader file.</param>
         public BootResources(string prefix, Assembly assembly)
         {
             this.assembly = assembly;
@@ -46,7 +58,7 @@ namespace HularionExperience.Boot
             Refresh();
         }
 
-        public void Refresh()
+        private void Refresh()
         {
             resourcesNames = assembly.GetManifestResourceNames();
             foreach (var resourceName in resourcesNames)
@@ -88,6 +100,15 @@ namespace HularionExperience.Boot
         public string GetIFrameLoader()
         {
             return GetResource("IFrameLoader.html");
+        }
+
+        /// <summary>
+        /// Gets the kernel loader js.
+        /// </summary>
+        /// <returns></returns>
+        public string GetKernelLoader()
+        {
+            return GetResource("HXKernelBootLoader.js");
         }
 
         public IDictionary<string, string> GetKernelPackage()

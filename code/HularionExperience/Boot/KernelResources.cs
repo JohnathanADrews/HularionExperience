@@ -22,6 +22,9 @@ using System.Threading.Tasks;
 
 namespace HularionExperience.Boot
 {
+    /// <summary>
+    /// Contains the means to retrieve the HX kernel and other resources.
+    /// </summary>
     public class KernelResources : IKernelResources
     {
         private Assembly assembly;
@@ -72,6 +75,15 @@ namespace HularionExperience.Boot
             return resources.Where(x => x.Key.Contains("Packages.Kernel")).ToDictionary(x => x.Key, x => x.Value);
         }
 
+
+        /// <summary>
+        /// Gets the kernel loader js.
+        /// </summary>
+        /// <returns></returns>
+        public string GetKernelLoader()
+        {
+            return GetResource("HXKernelBootLoader.js");
+        }
 
         public string GetResource(string endsWith)
         {

@@ -90,6 +90,7 @@ namespace HularionExperience.PackageBuilder
         public static HtmlPackageAttribute PackageSource { get; private set; } = new HtmlPackageAttribute() { Name = "package-source" };
         public static HtmlPackageAttribute PresenterConfiguration { get; private set; } = new HtmlPackageAttribute() { Name = "presenter-configuration" };
         public static HtmlPackageAttribute PresenterSet { get; private set; } = new HtmlPackageAttribute() { Name = "presenter-set" };
+        public static HtmlPackageAttribute SelectedStyle { get; private set; } = new HtmlPackageAttribute() { Name = "selected-style" };
         public static HtmlPackageAttribute ScriptHandle { get; private set; } = new HtmlPackageAttribute() { Name = "script-handle" };
         public static HtmlPackageAttribute ScriptImport { get; private set; } = new HtmlPackageAttribute() { Name = "script-import" };
         public static HtmlPackageAttribute ScriptLoadContext { get; private set; } = new HtmlPackageAttribute() { Name = "script-load-context" };
@@ -220,6 +221,7 @@ namespace HularionExperience.PackageBuilder
         /// StyleStructure controls for font size, padding, margin, border, width, height, etcetera.
         /// </summary>
         //public static HtmlPackageAttribute StyleStructure { get; private set; } = new HtmlPackageAttribute() { Name = "style-structure" };
+        public static HtmlPackageAttribute StyleCategory { get; private set; } = new HtmlPackageAttribute() { Name = "style-category" };
         public static HtmlPackageAttribute StyleCategoryKey { get; private set; } = new HtmlPackageAttribute() { Name = "style-category-key" };
         public static HtmlPackageAttribute StyleCategoryValue { get; private set; } = new HtmlPackageAttribute() { Name = "style-category-value" };
         public static HtmlPackageAttribute Template { get; private set; } = new HtmlPackageAttribute() { Name = "template" };
