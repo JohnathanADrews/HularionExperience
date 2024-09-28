@@ -25,6 +25,9 @@ using System.Threading.Tasks;
 
 namespace HularionExperience.Embedded
 {
+    /// <summary>
+    /// The boot resources for an embedded application.
+    /// </summary>
     public class EmbeddedBootResources : BootResources
     {
 
@@ -33,12 +36,19 @@ namespace HularionExperience.Embedded
         /// </summary>
         public string ApplicationTitle { get; set; }
 
+        /// <summary>
+        /// Constructor.
+        /// </summary>
         public EmbeddedBootResources() 
             : base("Embedded.Boot", Assembly.GetExecutingAssembly())
         {
 
         }
 
+        /// <summary>
+        /// Gets the index page for an embedded application.
+        /// </summary>
+        /// <returns>The index page for an embedded application.</returns>
         public override string GetIndexPage()
         {
             var index = GetResource("Index.html");

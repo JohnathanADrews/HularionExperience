@@ -19,7 +19,7 @@
 	<RepositoryType>git</RepositoryType>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
 	<PackageTags>hularion app application framework</PackageTags>
-	<Version>3.0.11</Version>
+	<Version>3.0.12</Version>
 	<PackageLicenseFile>LICENSE</PackageLicenseFile>
 	<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>

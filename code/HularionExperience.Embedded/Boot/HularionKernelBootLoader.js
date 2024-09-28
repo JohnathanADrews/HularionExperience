@@ -22,9 +22,7 @@ window.addEventListener("load", () => {
 
             var requestProcessor = parameters => new Promise((resolve) => resourceManagerAsync.requestProcessor(JSON.stringify(parameters)).then(val => { resolve(JSON.parse(val)); }));
 
-            var se = window.document.createElement("script");
-            se.innerHTML = initializer.kernelLoader;
-            window.document.body.appendChild(se);
+            eval(initializer.kernelLoader);
             hStart(initializer, requestProcessor);
 
         });
