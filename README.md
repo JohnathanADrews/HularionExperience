@@ -21,7 +21,7 @@ The first doument, https://github.com/JohnathanADrews/HularionExperience/blob/ma
 
 The second document, https://github.com/JohnathanADrews/HularionExperience/blob/main/docs/2%20-%20Create%20a%20Button/readme.md, will should you the basic setup.
 
-HX is an open-ended attribute-driven framework with a robust packaging and routing system. You can use HX to embed applications whithin your website or use it to create you entires website. The same code can be used to create a desktop experience using an embedded browser. The setup is easy, and there is no installation required.
+HX is an open-ended attribute-driven framework with a robust packaging and routing system. You can use HX to embed applications whithin your website or use it to create you entire website. The same code can be used to create a desktop experience using an embedded browser. The setup is easy, and there is no installation required.
 
 
 
