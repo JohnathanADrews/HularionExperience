@@ -21,10 +21,17 @@ using System.Threading.Tasks;
 
 namespace HularionExperience.PackageStores.Composite
 {
+    /// <summary>
+    /// A composite of package stores.
+    /// </summary>
     public class CompositePackageStore : IPackageStore
     {
         private List<IPackageStore> packageStores = new();
 
+        /// <summary>
+        /// Adds the package store to this store.
+        /// </summary>
+        /// <param name="store">The package store to add.</param>
         public void AddPackageStore(IPackageStore store)
         {
             lock (packageStores)
@@ -33,7 +40,23 @@ namespace HularionExperience.PackageStores.Composite
             }
         }
 
+        /// <summary>
+        /// Adds the package stores to this store.
+        /// </summary>
+        /// <param name="stores">The package stores to add.</param>
+        public void AddPackageStores(params IPackageStore[] stores)
+        {
+            foreach(var store in stores)
+            {
+                AddPackageStore(store);
+            }
+        }
 
+        /// <summary>
+        /// Uses the indicator to locate the package, returning the first match.
+        /// </summary>
+        /// <param name="indicator">The indicator used to find the package.</param>
+        /// <returns>The first matching package.</returns>
         public ProvidePackageResult GetPackage(PackageIndicator indicator)
         {
             foreach (var store in packageStores)

@@ -7,8 +7,12 @@
 
 &nbsp;
 
-## Using Hularion Experience - Embedded
+## Hularion Experience (HX) 
+A modular client application framework for web and desktop using HTML, CSS, and JS. 
 
-#### This project performs most of the integration required to use Hularion Experience in a desktop environment.
+
+### Hularion Experience - Embedded
+
+#### This package performs most of the integration required to use Hularion Experience in a desktop environment. Look at how the BrowserViewModel is used in the Hularion Developer repository, and also look at the App.xaml.cs file to see the basic setup. https://github.com/JohnathanADrews/HularionDeveloper.
 
  

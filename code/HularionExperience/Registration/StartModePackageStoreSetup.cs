@@ -33,6 +33,10 @@ namespace HularionExperience.Registration
 
         private List<Assembly> projectAssemblies { get; set; } = new();
 
+        private List<IPackageStore> debugStores { get; set; } = new();
+
+        private List<IPackageStore> releaseStores { get; set; } = new();
+
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -86,6 +90,41 @@ namespace HularionExperience.Registration
         }
 
         /// <summary>
+        /// Adds the package store to the indicated mode setup.
+        /// </summary>
+        /// <param name="store">The package store to add.</param>
+        /// <param name="option">Selects which mode(s) in which to add the file store.</param>
+        /// <returns>this</returns>
+        public StartModePackageStoreSetup AddPackageStore(IPackageStore store, StartModeOption option = StartModeOption.ANY)
+        {
+            if (option == StartModeOption.ANY)
+            {
+                debugStores.Add(store);
+                releaseStores.Add(store);
+            }
+            if (option == StartModeOption.DEBUG)
+            {
+                debugStores.Add(store);
+            }
+            if (option == StartModeOption.RELEASE)
+            {
+                releaseStores.Add(store);
+            }
+            return this;
+        }
+
+        /// <summary>
+        /// Adds a file package store. This is required if the application will be running projects (pre-built packages) in addition to built packages.
+        /// </summary>
+        /// <param name="option">Selects which mode(s) in which to add the file store.</param>
+        /// <returns>this</returns>
+        public StartModePackageStoreSetup AddFilePackageStore(StartModeOption option = StartModeOption.ANY)
+        {
+            AddPackageStore(new ProjectFilePackageStore(), option);
+            return this;
+        }
+
+        /// <summary>
         /// Creates the package store using the provided assemblies.
         /// </summary>
         /// <returns>The package store.</returns>
@@ -110,6 +149,7 @@ namespace HularionExperience.Registration
                 var fileProjectStore = new ProjectFilePackageStore();
                 fileProjectStore.AddLocators(projectLocators);
                 compositeProvider.AddPackageStore(fileProjectStore);
+                compositeProvider.AddPackageStores(debugStores.ToArray());
             });
 
 
@@ -123,6 +163,7 @@ namespace HularionExperience.Registration
                 projectProvider.MatchAnyVersion = true;
                 projectProvider.Initialize();
                 compositeProvider.AddPackageStore(projectProvider);
+                compositeProvider.AddPackageStores(releaseStores.ToArray());
             });
 
             if (System.Diagnostics.Debugger.IsAttached)

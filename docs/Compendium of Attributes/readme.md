@@ -108,13 +108,14 @@ Note: Attributes and their usage can be found in HtmlResourceAttribute.cs, Resou
 [h-import-presenter](#h-import-presenter) - [Set](#SetConfiguration)    
 [h-import-script](#h-import-script) - [Project](#ProjectConfiguration) , [Set](#SetConfiguration)    
 [h-import-set](#h-import-set) - [Project](#ProjectConfiguration) , [Set](#SetConfiguration)        
-[h-license](#h-license) - [Project](#ProjectConfiguration) 
-[h-license-must-agree](#h-license-must-agree) - [Project](#ProjectConfiguration) 
+[h-license](#h-license) - [Project](#ProjectConfiguration)  
+[h-license-must-agree](#h-license-must-agree) - [Project](#ProjectConfiguration)  
 [h-link](#h-link) - [Project](#ProjectConfiguration)         
 [h-package](#h-package) - [Project](#ProjectConfiguration)   
 [h-package-key](#h-package-key) - [Project](#ProjectConfiguration)   
 [h-package-name](#h-package-name) - [Project](#ProjectConfiguration)    
-[h-package-import](#h-package-import) - [Project](#ProjectConfiguration)     
+[h-package-import](#h-package-import) - [Project](#ProjectConfiguration)  
+[h-presenter](#h-presenter) - [Set](#PresenterFile)      
 [h-presenter-configuration](#h-presenter-configuration) - [Set](#SetConfiguration)   
 [h-presenter-frame](#h-presenter-frame) - [Set](#SetConfiguration)   
 [h-presenter-set](#h-presenter-set) - [Set](#SetConfiguration)      
@@ -124,8 +125,10 @@ Note: Attributes and their usage can be found in HtmlResourceAttribute.cs, Resou
 [h-publisher](#h-publisher) - [Presenter](#PresenterFile)   
 [h-role](#h-role) - [Project](#ProjectConfiguration)   
 [h-script-frame](#h-script-frame) - [Project](#ProjectConfiguration) , [Set](#SetConfiguration)  
-[h-server-router](#h-server-router) - [Project](#ProjectConfiguration)
-[h-start-parameter](#h-start-parameter) - [Presenter](#PresenterFile)    
+[h-selected-style](#h-selected-style) - [Application](#ApplicationConfiguration)  
+[h-server-router](#h-server-router) - [Project](#ProjectConfiguration)  
+[h-start-parameter](#h-start-parameter) - [Presenter](#PresenterFile)  
+[h-style-category](#h-style-category) - [Presenter](#PresenterFile)    
 [h-template](#h-template) - [Presenter](#PresenterFile)    
 [h-template-instance](#h-template-instance) - [Presenter](#PresenterFile)        
 [h-version](#h-version) - [Project](#ProjectConfiguration)         
@@ -144,16 +147,23 @@ Note: Attributes and their usage can be found in HtmlResourceAttribute.cs, Resou
 <!--                    h-alias                 -->
 <a id="h-alias"></a>
 * ### h-alias  
-Description
+Creates an alias for a imported package so that the package can be refernced elsewhere without needing to know the package key or package version. See [h-package-import](#h-package-import)
 ```
+<hx h-package-import="<package_key>" h-version="<package_version>" h-alias="<pacakge_alias>"/>
 ``` 
 
 &nbsp;
 <!--                    h-application-is-default                 -->
 <a id="h-application-is-default"></a>
 * ### h-application-is-default  
-Description
+Sets a IsDefault value indicating that the application is the default application in the package. This could be used by a package player if more than one application is defined within a package.
 ```
+<hx
+    ...
+    h-application-is-default="true"
+>
+ ...
+</hx>
 ``` 
 
 &nbsp;
@@ -216,8 +226,9 @@ Declares the presenter set containing the presenter that will be used as the ent
 <!--                    h-assign                 -->
 <a id="h-assign"></a>
 * ### h-assign  
-Description
+Runs JS code within a frame and places it on a handle.
 ```
+<hx h-script-frame="<frame_name>" h-attach="<frame | inject>" h-handle="<frame.reference.path>" h-assign="<javascript_returning_value>" />
 ``` 
 
 &nbsp;
@@ -227,10 +238,7 @@ Description
 Attaches an object to either the caller frame's global window using the "frame" value, or to each presenter instance if the caller is a presenter frame and the "inject" values was used.
 See [h-presenter-frame](#h-presenter-frame), [h-script-frame](#h-script-frame).
 
-```
 
-
-``` 
 
 &nbsp;
 <!--                    h-brand-name                 -->
@@ -392,8 +400,13 @@ h-handle="<period-delimited-handle-path>"
 <!--                    h-hxpackage                 -->
 <a id="h-hxpackage"></a>
 * ### h-hxpackage  
-Description
+Used in the .hxproject project file, this attribute indicates that the content of the tag contains a high-level package specification.
 ```
+<hx h-hxpackage="true"
+    ...
+>
+    ...
+</hx>
 ``` 
 
 
@@ -530,6 +543,24 @@ Also, there is an option attribute for project references. In such a case, the v
 
 
 &nbsp;
+<!--                    h-Presenter                 -->
+<a id="h-presenter"></a>
+* ### h-presenter  
+Declared within a [presenter](#PresenterFile) to create an instance of a presenter, inserting it into the view at the desired location.  A handle can be added to access it within the [presenter instance](#PresenterInstance);  
+
+If the referenced presenter is defined in the same presenter set, then only the presenter name is required.
+```
+<hx h-presenter="<presenter_name>" h-handle="<my.presenter.handle>" />
+``` 
+
+If the presenter is defined within another set (in any package), then a frame must be created in the configuration and the frame name must precede the presenter name, separated by a forward slash.
+
+```
+<hx h-presenter="<frame_name>/<presenter_name>" h-handle="<my.presenter.handle>" />
+``` 
+
+
+&nbsp;
 <!--                    h-presenter-configuration                 -->
 <a id="h-presenter-configuration"></a>
 * ### h-presenter-configuration  
@@ -635,6 +666,33 @@ Indicates that a script frame reference should be used for some purpose. The fra
 
 
 &nbsp;
+<!--                    h-selected-style                -->
+<a id="h-selected-style"></a>
+* ### h-selected-style
+Selects a startup style for a category in the [application](#ApplicationConfiguration) file. Multple style categories can be selected.
+```
+<hx h-application="true"
+    ...
+>
+
+    <hx h-selected-style="<category_name>=><category_value>" />
+
+</hx>
+``` 
+For Example,
+```
+<hx h-application="true"
+    ...
+>
+
+    <hx h-selected-style="Theme=>Light" />
+    <hx h-selected-style="Corners=>Round" />
+    <hx h-selected-style="Display=>LargeIcons" />
+
+</hx>
+```
+
+&nbsp;
 <!--                    h-server-router                 -->
 <a id="h-server-router"></a>
 * ### h-server-router 
@@ -653,22 +711,45 @@ An [option](#OptionAttribute) for [h-component](#h-component), indicating parame
 ``` 
 
 
+
+
 &nbsp;
-<!--                    h-Presenter                 -->
-<a id="h-presenter"></a>
-* ### h-presenter  
-Declared within a [presenter](#PresenterFile) to create an instance of a presenter, inserting it into the view at the desired location.  A handle can be added to access it within the [presenter instance](#PresenterInstance);  
+<!--                    h-style-category                 -->
+<a id="h-style-category"></a>
+* ### h-style-category 
 
-If the referenced presenter is defined in the same presenter set, then only the presenter name is required.
-```
-<hx h-presenter="<presenter_name>" h-handle="<my.presenter.handle>" />
-``` 
-
-If the presenter is defined within another set (in any package), then a frame must be created in the configuration and the frame name must precede the presenter name, separated by a forward slash.
+Used on a style tag within a [presenter](#PresenterFile) to assign a stlye category.  Style category names and values are applied across all running packages in applications in a display. Styles can be selected using the [application](#ApplicationConfiguration) setting [h-selected-style](h-selected-style) or using the style routes.
 
 ```
-<hx h-presenter="<frame_name>/<presenter_name>" h-handle="<my.presenter.handle>" />
-``` 
+<style h-style-category="<category_name>/<category_selection>">
+    ...
+</style>
+```
+```
+<style h-style-category="Theme/Light">
+    .this * {
+        color: black;
+        background-color: white;
+    }
+</style>
+<style h-style-category="Theme/Dark">
+    .this * {
+        color: white;
+        background-color: black;
+    }
+</style>
+
+<style h-style-category="Corners/Square">
+    .this * {
+        border-radius:0px;
+    }
+</style>
+<style h-style-category="Corners/Round">
+    .this * {
+        border-radius:5px;
+    }
+</style>
+```
 
 
 
